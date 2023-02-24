@@ -16,14 +16,13 @@
 *
 */
 
-namespace BaksDev\Field\Pack\Input\Type;
+namespace BaksDev\Field\Pack\Textarea\Type;
 
-final class InputField
+final class TextareaField
 {
-	public const TYPE = 'input_field';
+	public const TYPE = 'textarea_field';
 	
 	private string $value;
-	
 	
 	public function __construct(string $value)
 	{

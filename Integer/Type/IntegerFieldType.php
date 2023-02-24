@@ -16,29 +16,27 @@
 *
 */
 
-namespace BaksDev\Field\Pack\Input\Type;
+namespace BaksDev\Field\Pack\Integer\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\BigIntType;
 use Doctrine\DBAL\Types\StringType;
 
-final class InputFieldType extends StringType
+final class IntegerFieldType extends BigIntType
 {
-	
 	public function convertToDatabaseValue($value, AbstractPlatform $platform) : mixed
 	{
-		return $value instanceof InputField ? $value->getValue() : $value;
+		return $value instanceof IntegerField ? $value->getValue() * 100 : $value * 100;
 	}
-	
 	
 	public function convertToPHPValue($value, AbstractPlatform $platform) : mixed
 	{
-		return !empty($value) ? new InputField($value) : null;
+		return !empty($value) ? new IntegerField($value) : null;
 	}
-	
 	
 	public function getName() : string
 	{
-		return InputField::TYPE;
+		return IntegerField::TYPE;
 	}
 	
 	
@@ -46,5 +44,6 @@ final class InputFieldType extends StringType
 	{
 		return true;
 	}
+	
 	
 }

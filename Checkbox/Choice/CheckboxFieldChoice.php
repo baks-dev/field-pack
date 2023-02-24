@@ -23,23 +23,22 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Input\Choice;
+namespace BaksDev\Field\Pack\Checkbox\Choice;
 
 use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
-use BaksDev\Field\Pack\Input\Type\InputField;
+use BaksDev\Field\Pack\Checkbox\Type\CheckboxField;
 
-final class InputFieldChoice implements FieldsChoiceInterface
+final class CheckboxFieldChoice implements FieldsChoiceInterface
 {
 	public function equals($key) : bool
 	{
-		return $key === InputField::TYPE;
+		return $key === CheckboxField::TYPE;
 	}
 	
 	public function type() : string
 	{
-		return InputField::TYPE;
+		return CheckboxField::TYPE;
 	}
-	
 	
 	public function choice() : bool
 	{
@@ -50,7 +49,6 @@ final class InputFieldChoice implements FieldsChoiceInterface
 	
 	public function domain() : string
 	{
-		return 'field.input';
+		return 'field.checkbox';
 	}
-	
 }

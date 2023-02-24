@@ -1,0 +1,8 @@
+{
+  "namespaces": [
+    {
+      "namespace": "TextareaField",
+      "path": "Resources/view"
+    }
+  ]
+}

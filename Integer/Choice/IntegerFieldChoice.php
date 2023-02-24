@@ -23,23 +23,23 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Input\Choice;
+namespace BaksDev\Field\Pack\Integer\Choice;
 
 use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
-use BaksDev\Field\Pack\Input\Type\InputField;
 
-final class InputFieldChoice implements FieldsChoiceInterface
+use BaksDev\Field\Pack\Integer\Type\IntegerField;
+
+final class IntegerFieldChoice implements FieldsChoiceInterface
 {
 	public function equals($key) : bool
 	{
-		return $key === InputField::TYPE;
+		return $key === IntegerField::TYPE;
 	}
 	
 	public function type() : string
 	{
-		return InputField::TYPE;
+		return IntegerField::TYPE;
 	}
-	
 	
 	public function choice() : bool
 	{
@@ -47,10 +47,9 @@ final class InputFieldChoice implements FieldsChoiceInterface
 		return false;
 	}
 	
-	
 	public function domain() : string
 	{
-		return 'field.input';
+		return 'field.integer';
 	}
 	
 }

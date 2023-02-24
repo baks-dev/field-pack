@@ -1,8 +1,8 @@
 <?php
 
 return [
-	'placeholder' => 'Текстовое поле',
-	'label' => 'Текстовое поле',
+	'placeholder' => 'Текстовой элемент (input)',
+	'label' => 'Текстовой элемент (input)',
 	
 
 ];

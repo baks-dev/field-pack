@@ -16,20 +16,19 @@
 *
 */
 
-namespace BaksDev\Field\Pack\Input\Type;
+namespace BaksDev\Field\Pack\Integer\Type;
 
-final class InputField
+final class IntegerField
 {
-	public const TYPE = 'input_field';
+	public const TYPE = 'integer_field';
 	
-	private string $value;
+	private int $value;
 	
 	
-	public function __construct(string $value)
+	public function __construct(int $value)
 	{
 		$this->value = $value;
 	}
-	
 	
 	public function __toString() : string
 	{
@@ -37,7 +36,7 @@ final class InputField
 	}
 	
 	
-	public function getValue() : string
+	public function getValue() : int
 	{
 		return $this->value;
 	}

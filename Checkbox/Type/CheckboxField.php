@@ -16,28 +16,20 @@
 *
 */
 
-namespace BaksDev\Field\Pack\Input\Type;
+namespace BaksDev\Field\Pack\Checkbox\Type;
 
-final class InputField
+final class CheckboxField
 {
-	public const TYPE = 'input_field';
+	public const TYPE = 'checkbox_field';
 	
-	private string $value;
+	private bool $value;
 	
-	
-	public function __construct(string $value)
+	public function __construct(bool $value)
 	{
 		$this->value = $value;
 	}
 	
-	
-	public function __toString() : string
-	{
-		return $this->value;
-	}
-	
-	
-	public function getValue() : string
+	public function getValue() : bool
 	{
 		return $this->value;
 	}

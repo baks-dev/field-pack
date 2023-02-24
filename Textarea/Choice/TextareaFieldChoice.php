@@ -23,23 +23,22 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Input\Choice;
+namespace BaksDev\Field\Pack\Textarea\Choice;
 
 use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
-use BaksDev\Field\Pack\Input\Type\InputField;
+use BaksDev\Field\Pack\Textarea\Type\TextareaField;
 
-final class InputFieldChoice implements FieldsChoiceInterface
+final class TextareaFieldChoice implements FieldsChoiceInterface
 {
 	public function equals($key) : bool
 	{
-		return $key === InputField::TYPE;
+		return $key === TextareaField::TYPE;
 	}
 	
 	public function type() : string
 	{
-		return InputField::TYPE;
+		return TextareaField::TYPE;
 	}
-	
 	
 	public function choice() : bool
 	{
@@ -50,7 +49,6 @@ final class InputFieldChoice implements FieldsChoiceInterface
 	
 	public function domain() : string
 	{
-		return 'field.input';
+		return 'field.textarea';
 	}
-	
 }

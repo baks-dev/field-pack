@@ -1,8 +1,6 @@
 <?php
 
 return [
-	'placeholder' =>'Text field',
-	'label' =>'Text field',
-	
-	
+	'placeholder' =>'Text element (input)',
+	'label' =>'Text element (input)',
 ];

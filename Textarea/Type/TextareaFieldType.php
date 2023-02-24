@@ -16,29 +16,35 @@
 *
 */
 
-namespace BaksDev\Field\Pack\Input\Type;
+namespace BaksDev\Field\Pack\Textarea\Type;
 
-final class InputField
+use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\TextType;
+
+final class TextareaFieldType extends TextType
 {
-	public const TYPE = 'input_field';
 	
-	private string $value;
-	
-	
-	public function __construct(string $value)
+	public function convertToDatabaseValue($value, AbstractPlatform $platform) : mixed
 	{
-		$this->value = $value;
+		return $value instanceof TextareaField ? $value->getValue() : $value;
 	}
 	
 	
-	public function __toString() : string
+	public function convertToPHPValue($value, AbstractPlatform $platform) : mixed
 	{
-		return $this->value;
+		return !empty($value) ? new TextareaField($value) : null;
 	}
 	
 	
-	public function getValue() : string
+	public function getName() : string
 	{
-		return $this->value;
+		return TextareaField::TYPE;
 	}
+	
+	
+	public function requiresSQLCommentHint(AbstractPlatform $platform) : bool
+	{
+		return true;
+	}
+	
 }

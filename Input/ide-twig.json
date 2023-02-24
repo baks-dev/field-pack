@@ -2,7 +2,7 @@
   "namespaces": [
     {
       "namespace": "InputField",
-      "path": "Input/Resources/view"
+      "path": "Resources/view"
     }
   ]
 }
