@@ -10,35 +10,6 @@
 $ composer require baks-dev/field-pack
 ```
 
-## Настройки
-
-Для отображения в выпадающих списках, добавить настройку сервиса в конфиг:
-
-config/packages/field.php
-
-``` php
-<?php
-
-namespace Symfony\Component\DependencyInjection\Loader\Configurator;
-
-use BaksDev\Reference\Color\Choice\ReferenceChoiceColor;
-
-return static function (ContainerConfigurator $configurator) {
-	
-	$services = $configurator->services()
-            ->defaults()
-            ->autowire(true)
-            ->autoconfigure(true)
-	;
-
-	$services
-            ->set(ReferenceChoiceColor::class)
-            ->tag('baks.fields.choice')
-	;
-};
-
-```
-
 
 ## Журнал изменений ![Changelog](https://img.shields.io/badge/changelog-yellow)
 
