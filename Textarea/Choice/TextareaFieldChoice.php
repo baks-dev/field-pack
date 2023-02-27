@@ -26,6 +26,7 @@ declare(strict_types=1);
 namespace BaksDev\Field\Pack\Textarea\Choice;
 
 use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
+use BaksDev\Field\Pack\Textarea\Form\TextareaFieldForm;
 use BaksDev\Field\Pack\Textarea\Type\TextareaField;
 
 final class TextareaFieldChoice implements FieldsChoiceInterface
@@ -40,15 +41,23 @@ final class TextareaFieldChoice implements FieldsChoiceInterface
 		return TextareaField::TYPE;
 	}
 	
-	public function choice() : bool
-	{
-		/** Поле не является выбором */
-		return false;
-	}
+//	public function choice() : bool
+//	{
+//		/** Поле не является выбором */
+//		return false;
+//	}
 	
 	
 	public function domain() : string
 	{
 		return 'field.textarea';
 	}
+	
+	
+	/** Возвращает класс формы для рендера */
+	public function form() : string
+	{
+		return TextareaFieldForm::class;
+	}
+	
 }

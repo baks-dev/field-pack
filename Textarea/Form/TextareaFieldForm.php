@@ -23,40 +23,38 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Integer\Choice;
+namespace BaksDev\Field\Pack\Textarea\Form;
 
-use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use BaksDev\Field\Pack\Integer\Form\IntegerFieldForm;
-use BaksDev\Field\Pack\Integer\Type\IntegerField;
-
-final class IntegerFieldChoice implements FieldsChoiceInterface
+final class TextareaFieldForm extends AbstractType
 {
-	public function equals($key) : bool
-	{
-		return $key === IntegerField::TYPE;
-	}
 	
-	public function type() : string
-	{
-		return IntegerField::TYPE;
-	}
-	
-//	public function choice() : bool
+//	public function buildForm(FormBuilderInterface $builder, array $options) : void
 //	{
-//		/** Поле не является выбором */
-//		return false;
+//		$builder->add('image', TextType::class, ['required' => false]);
+//
+//		/* Сохранить ******************************************************/
+//		$builder->add(
+//			'Save',
+//			SubmitType::class,
+//			['label' => 'Save', 'label_html' => true, 'attr' => ['class' => 'btn-primary']]
+//		);
 //	}
 	
-	public function domain() : string
+	
+	public function configureOptions(OptionsResolver $resolver) : void
 	{
-		return 'field.integer';
+//		$resolver->setDefaults([
+//			'data_class' => TextareaFieldDTO::class,
+//		]);
 	}
 	
-	/** Возвращает класс формы для рендера */
-	public function form() : string
+	public function getParent(): string
 	{
-		return IntegerFieldForm::class;
+		return TextareaType::class;
 	}
 	
 }

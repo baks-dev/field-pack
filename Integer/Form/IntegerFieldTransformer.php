@@ -23,40 +23,22 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Integer\Choice;
+namespace BaksDev\Field\Pack\Integer\Form;
 
-use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
 
-use BaksDev\Field\Pack\Integer\Form\IntegerFieldForm;
-use BaksDev\Field\Pack\Integer\Type\IntegerField;
-
-final class IntegerFieldChoice implements FieldsChoiceInterface
+final class IntegerFieldTransformer implements DataTransformerInterface
 {
-	public function equals($key) : bool
+	
+	public function transform(mixed $value) : int
 	{
-		return $key === IntegerField::TYPE;
+		return (int) $value;
 	}
 	
-	public function type() : string
+	public function reverseTransform(mixed $value) : string
 	{
-		return IntegerField::TYPE;
-	}
-	
-//	public function choice() : bool
-//	{
-//		/** Поле не является выбором */
-//		return false;
-//	}
-	
-	public function domain() : string
-	{
-		return 'field.integer';
-	}
-	
-	/** Возвращает класс формы для рендера */
-	public function form() : string
-	{
-		return IntegerFieldForm::class;
+		return (string) $value;
 	}
 	
 }

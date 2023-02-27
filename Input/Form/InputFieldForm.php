@@ -23,40 +23,40 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Integer\Choice;
+namespace BaksDev\Field\Pack\Input\Form;
 
-use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
-use BaksDev\Field\Pack\Integer\Form\IntegerFieldForm;
-use BaksDev\Field\Pack\Integer\Type\IntegerField;
-
-final class IntegerFieldChoice implements FieldsChoiceInterface
+final class InputFieldForm extends AbstractType
 {
-	public function equals($key) : bool
-	{
-		return $key === IntegerField::TYPE;
-	}
 	
-	public function type() : string
-	{
-		return IntegerField::TYPE;
-	}
-	
-//	public function choice() : bool
+//	public function buildForm(FormBuilderInterface $builder, array $options) : void
 //	{
-//		/** Поле не является выбором */
-//		return false;
+//		$builder->add('image', TextType::class, ['required' => false]);
+//
+//		/* Сохранить ******************************************************/
+//		$builder->add(
+//			'Save',
+//			SubmitType::class,
+//			['label' => 'Save', 'label_html' => true, 'attr' => ['class' => 'btn-primary']]
+//		);
 //	}
 	
-	public function domain() : string
+	
+	public function configureOptions(OptionsResolver $resolver) : void
 	{
-		return 'field.integer';
+//		$resolver->setDefaults([
+//			'data_class' => InputFieldDTO::class,
+//		]);
 	}
 	
-	/** Возвращает класс формы для рендера */
-	public function form() : string
+	public function getParent(): string
 	{
-		return IntegerFieldForm::class;
+		return TextType::class;
 	}
 	
 }

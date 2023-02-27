@@ -26,6 +26,7 @@ declare(strict_types=1);
 namespace BaksDev\Field\Pack\Checkbox\Choice;
 
 use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
+use BaksDev\Field\Pack\Checkbox\Form\CheckboxFieldForm;
 use BaksDev\Field\Pack\Checkbox\Type\CheckboxField;
 
 final class CheckboxFieldChoice implements FieldsChoiceInterface
@@ -40,15 +41,23 @@ final class CheckboxFieldChoice implements FieldsChoiceInterface
 		return CheckboxField::TYPE;
 	}
 	
-	public function choice() : bool
-	{
-		/** Поле не является выбором */
-		return false;
-	}
+//	public function choice() : bool
+//	{
+//		/** Поле не является выбором */
+//		return false;
+//	}
 	
 	
 	public function domain() : string
 	{
 		return 'field.checkbox';
 	}
+	
+	
+	/** Возвращает класс формы для рендера */
+	public function form() : string
+	{
+		return CheckboxFieldForm::class;
+	}
+	
 }

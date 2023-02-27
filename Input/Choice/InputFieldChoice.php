@@ -26,6 +26,7 @@ declare(strict_types=1);
 namespace BaksDev\Field\Pack\Input\Choice;
 
 use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
+use BaksDev\Field\Pack\Input\Form\InputFieldForm;
 use BaksDev\Field\Pack\Input\Type\InputField;
 
 final class InputFieldChoice implements FieldsChoiceInterface
@@ -41,16 +42,23 @@ final class InputFieldChoice implements FieldsChoiceInterface
 	}
 	
 	
-	public function choice() : bool
-	{
-		/** Поле не является выбором */
-		return false;
-	}
+//	public function choice() : bool
+//	{
+//		/** Поле не является выбором */
+//		return false;
+//	}
 	
 	
 	public function domain() : string
 	{
 		return 'field.input';
+	}
+	
+	
+	/** Возвращает класс формы для рендера */
+	public function form() : string
+	{
+		return InputFieldForm::class;
 	}
 	
 }

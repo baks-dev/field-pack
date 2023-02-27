@@ -12,6 +12,12 @@ return static function (ContainerConfigurator $configurator) {
 		->autoconfigure(true)
 	;
 	
+	$namespace = 'BaksDev\Field\Pack\Integer';
+	
+	$services->load($namespace.'\Form\\', __DIR__.'/../../Form')
+		//->exclude(__DIR__.'/../../Repository/**/*DTO.php')
+	;
+	
 	$services->set(IntegerFieldChoice::class)
 		->tag('baks.fields.choice')
 	;
