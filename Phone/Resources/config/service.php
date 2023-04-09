@@ -2,7 +2,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use BaksDev\Field\Pack\Checkbox\Choice\CheckboxFieldChoice;
+use BaksDev\Field\Pack\Phone\Choice\PhoneFieldChoice;
 
 return static function (ContainerConfigurator $configurator) {
 	
@@ -12,9 +12,19 @@ return static function (ContainerConfigurator $configurator) {
 		->autoconfigure(true)
 	;
 	
-//	$services->set(CheckboxFieldChoice::class)
-//		->tag('baks.fields.choice')
-//	;
+	
+	$namespace = 'BaksDev\Field\Pack\Phone';
+	
+	$services->load($namespace.'\Form\\', __DIR__.'/../../Form')
+		//->exclude(__DIR__.'/../../Repository/**/*DTO.php')
+	;
+	
+	$services->set(PhoneFieldChoice::class)
+		->tag('baks.fields.choice')
+	;
+	
+	
+
 
 };
 

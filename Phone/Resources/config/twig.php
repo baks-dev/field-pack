@@ -17,6 +17,10 @@ return static function(ContainerConfigurator $configurator, TwigConfig $config) 
 //		->tag('twig.extension')
 //	;
 	
+	$namespace = 'BaksDev\Field\Pack\Phone';
+	
+	$services->load($namespace.'\Twig\\', __DIR__.'/../../Twig');
+	
 	$config->path(__DIR__.'/../view', 'PhoneField');
 	
 };
