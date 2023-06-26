@@ -25,11 +25,7 @@
 
 namespace BaksDev\Field\Pack\Phone\Twig;
 
-use BaksDev\Field\Pack\Input\Type\InputField;
-use BaksDev\Field\Pack\Integer\Type\IntegerField;
 use BaksDev\Field\Pack\Phone\Type\PhoneField;
-use BaksDev\Field\Tire\Profile\Type\TireProfileEnum;
-use BaksDev\Field\Tire\Profile\Type\TireProfileField;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Extension\AbstractExtension;
@@ -40,21 +36,21 @@ final class PhoneFieldExtension extends AbstractExtension
 	public function getFunctions() : array
 	{
 		return [
-			new TwigFunction(PhoneField::TYPE, [$this, 'call'], ['needs_environment' => true, 'is_safe' => ['html']]),
+			new TwigFunction(PhoneField::TYPE, [$this, 'content'], ['needs_environment' => true, 'is_safe' => ['html']]),
 			new TwigFunction(PhoneField::TYPE.'_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
 			new TwigFunction(PhoneField::TYPE.'_template', [$this, 'template'], ['needs_environment' => true, 'is_safe' => ['html']]),
 		];
 	}
 	
-	public function call(Environment $twig, string $value) : string
+	public function content(Environment $twig, string $value, string $type, string $label = null) : string
 	{
 		try
 		{
-			return $twig->render('@Template/PhoneField/content.html.twig', ['value' => $value]);
+			return $twig->render('@Template/PhoneField/content.html.twig', ['value' => $value, 'label' => $label]);
 		}
 		catch(LoaderError $loaderError)
 		{
-			return $twig->render('@PhoneField/content.html.twig', ['value' => $value]);
+			return $twig->render('@PhoneField/content.html.twig', ['value' => $value, 'label' => $label]);
 		}
 	}
 	
