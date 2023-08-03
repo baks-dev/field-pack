@@ -11,6 +11,12 @@ return static function (ContainerConfigurator $configurator) {
 		->autowire(true)
 		->autoconfigure(true)
 	;
+
+    $NAMESPACE = 'BaksDev\Field\Pack\Input\\';
+
+    $MODULE = substr(__DIR__, 0, strpos(__DIR__, "Resources"));
+
+    $services->load($NAMESPACE.'Twig\\', $MODULE.'Twig');
 	
 	$services->set(InputFieldChoice::class)
 		->tag('baks.fields.choice')

@@ -44,6 +44,8 @@ final class InputFieldExtension extends AbstractExtension
 
     public function call(Environment $twig, string $value, string $type, string $label = null): string
     {
+
+
         try
         {
             return $twig->render('@Template/InputField/content.html.twig', ['value' => $value, 'label' => $label]);
@@ -65,14 +67,21 @@ final class InputFieldExtension extends AbstractExtension
         }
     }
 
-    public function template(Environment $twig, string $value): string
+    public function template(Environment $twig, ?string $value): ?string
     {
-        try
+        if($value)
         {
-            return $twig->render('@Template/InputField/template.html.twig', ['value' => $value]);
-        } catch (LoaderError $loaderError)
-        {
-            return $twig->render('@InputField/template.html.twig', ['value' => $value]);
+
+            try
+            {
+                return $twig->render('@Template/InputField/template.html.twig', ['value' => $value]);
+            } catch (LoaderError $loaderError)
+            {
+                return $twig->render('@InputField/template.html.twig', ['value' => $value]);
+            }
         }
+
+        return null;
+
     }
 }

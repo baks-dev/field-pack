@@ -8,5 +8,5 @@ use BaksDev\Field\Pack\Textarea\Type\TextareaFieldType;
 use Symfony\Config\DoctrineConfig;
 
 return static function(DoctrineConfig $doctrine) {
-	$doctrine->dbal()->type(TextareaField::TYPE)->class(TextareaFieldType::class);
+    $doctrine->dbal()->type(TextareaField::TYPE)->class(TextareaFieldType::class);
 };

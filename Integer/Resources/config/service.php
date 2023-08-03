@@ -4,23 +4,21 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use BaksDev\Field\Pack\Integer\Choice\IntegerFieldChoice;
 
-return static function (ContainerConfigurator $configurator) {
-	
-	$services = $configurator->services()
-		->defaults()
-		->autowire(true)
-		->autoconfigure(true)
-	;
-	
-	$namespace = 'BaksDev\Field\Pack\Integer';
-	
-	$services->load($namespace.'\Form\\', __DIR__.'/../../Form')
-		//->exclude(__DIR__.'/../../Repository/**/*DTO.php')
-	;
-	
-	$services->set(IntegerFieldChoice::class)
-		->tag('baks.fields.choice')
-	;
+return static function(ContainerConfigurator $configurator) {
+
+    $services = $configurator->services()
+        ->defaults()
+        ->autowire(true)
+        ->autoconfigure(true);
+
+    $NAMESPACE = 'BaksDev\Field\Pack\Integer\\';
+
+    $MODULE = substr(__DIR__, 0, strpos(__DIR__, "Resources"));
+
+    $services->load($NAMESPACE.'Form\\', $MODULE.'Form');
+
+    $services->set(IntegerFieldChoice::class)
+        ->tag('baks.fields.choice');
 
 };
 
