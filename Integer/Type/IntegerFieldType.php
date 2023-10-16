@@ -24,17 +24,17 @@ use Doctrine\DBAL\Types\StringType;
 
 final class IntegerFieldType extends BigIntType
 {
-	public function convertToDatabaseValue($value, AbstractPlatform $platform) : mixed
+	public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
 	{
 		return $value instanceof IntegerField ? $value->getValue() * 100 : $value * 100;
 	}
 	
-	public function convertToPHPValue($value, AbstractPlatform $platform) : mixed
+	public function convertToPHPValue($value, AbstractPlatform $platform): mixed
 	{
 		return !empty($value) ? new IntegerField($value) : null;
 	}
 	
-	public function getName() : string
+	public function getName(): string
 	{
 		return IntegerField::TYPE;
 	}

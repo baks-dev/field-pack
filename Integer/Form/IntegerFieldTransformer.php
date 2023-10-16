@@ -36,7 +36,7 @@ final class IntegerFieldTransformer implements DataTransformerInterface
 		return (int) $value;
 	}
 	
-	public function reverseTransform(mixed $value) : string
+	public function reverseTransform(mixed $value): string
 	{
 		return (string) $value;
 	}

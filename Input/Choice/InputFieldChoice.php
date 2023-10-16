@@ -36,7 +36,7 @@ final class InputFieldChoice implements FieldsChoiceInterface
 		return $key === InputField::TYPE;
 	}
 	
-	public function type() : string
+	public function type(): string
 	{
 		return InputField::TYPE;
 	}
@@ -49,14 +49,14 @@ final class InputFieldChoice implements FieldsChoiceInterface
 //	}
 	
 	
-	public function domain() : string
+	public function domain(): string
 	{
 		return 'field.input';
 	}
 	
 	
 	/** Возвращает класс формы для рендера */
-	public function form() : string
+	public function form(): string
 	{
 		return InputFieldForm::class;
 	}

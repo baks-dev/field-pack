@@ -36,7 +36,7 @@ final class TextareaFieldChoice implements FieldsChoiceInterface
 		return $key === TextareaField::TYPE;
 	}
 	
-	public function type() : string
+	public function type(): string
 	{
 		return TextareaField::TYPE;
 	}
@@ -48,14 +48,14 @@ final class TextareaFieldChoice implements FieldsChoiceInterface
 //	}
 	
 	
-	public function domain() : string
+	public function domain(): string
 	{
 		return 'field.textarea';
 	}
 	
 	
 	/** Возвращает класс формы для рендера */
-	public function form() : string
+	public function form(): string
 	{
 		return TextareaFieldForm::class;
 	}

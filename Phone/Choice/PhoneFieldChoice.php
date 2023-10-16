@@ -36,18 +36,18 @@ final class PhoneFieldChoice implements FieldsChoiceInterface
 		return $key === PhoneField::TYPE;
 	}
 	
-	public function type() : string
+	public function type(): string
 	{
 		return PhoneField::TYPE;
 	}
 
-	public function domain() : string
+	public function domain(): string
 	{
 		return 'field.phone';
 	}
 	
 	/** Возвращает класс формы для рендера */
-	public function form() : string
+	public function form(): string
 	{
 		return PhoneFieldForm::class;
 	}

@@ -31,12 +31,12 @@ use Symfony\Component\Form\Exception\TransformationFailedException;
 final class PhoneFieldTransformer implements DataTransformerInterface
 {
 	
-	public function transform(mixed $value) : string
+	public function transform(mixed $value): string
 	{
 		return (string) $value;
 	}
 	
-	public function reverseTransform(mixed $value) : string
+	public function reverseTransform(mixed $value): string
 	{
 		return (string) $value;
 	}

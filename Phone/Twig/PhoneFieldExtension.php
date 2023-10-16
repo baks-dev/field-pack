@@ -42,7 +42,7 @@ final class PhoneFieldExtension extends AbstractExtension
 		];
 	}
 	
-	public function content(Environment $twig, string $value, string $type, string $label = null) : string
+	public function content(Environment $twig, string $value, string $type, string $label = null): string
 	{
 		try
 		{
@@ -55,7 +55,7 @@ final class PhoneFieldExtension extends AbstractExtension
 	}
 	
 	
-	public function render(Environment $twig, string $value) : string
+	public function render(Environment $twig, string $value): string
 	{
 		try
 		{
@@ -67,7 +67,7 @@ final class PhoneFieldExtension extends AbstractExtension
 		}
 	}
 	
-	public function template(Environment $twig, string $value) : string
+	public function template(Environment $twig, string $value): string
 	{
 		try
 		{

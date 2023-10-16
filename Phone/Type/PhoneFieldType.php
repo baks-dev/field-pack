@@ -24,19 +24,19 @@ use Doctrine\DBAL\Types\StringType;
 final class PhoneFieldType extends StringType
 {
 	
-	public function convertToDatabaseValue($value, AbstractPlatform $platform) : mixed
+	public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
 	{
 		return $value instanceof PhoneField ? $value->getValue() : $value;
 	}
 	
 	
-	public function convertToPHPValue($value, AbstractPlatform $platform) : mixed
+	public function convertToPHPValue($value, AbstractPlatform $platform): mixed
 	{
 		return !empty($value) ? new PhoneField($value) : null;
 	}
 	
 	
-	public function getName() : string
+	public function getName(): string
 	{
 		return PhoneField::TYPE;
 	}

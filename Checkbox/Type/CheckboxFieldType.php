@@ -24,18 +24,18 @@ use Doctrine\DBAL\Types\BooleanType;
 final class CheckboxFieldType extends BooleanType
 {
 	
-	public function convertToDatabaseValue($value, AbstractPlatform $platform) : mixed
+	public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
 	{
 		return $value instanceof CheckboxField ? $value->getValue() : null;
 	}
 	
-	public function convertToPHPValue($value, AbstractPlatform $platform) : mixed
+	public function convertToPHPValue($value, AbstractPlatform $platform): mixed
 	{
 		return !empty($value) ? new CheckboxField($value) : null;
 	}
 	
 	
-	public function getName() : string
+	public function getName(): string
 	{
 		return CheckboxField::TYPE;
 	}

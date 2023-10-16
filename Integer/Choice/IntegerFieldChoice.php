@@ -37,7 +37,7 @@ final class IntegerFieldChoice implements FieldsChoiceInterface
 		return $key === IntegerField::TYPE;
 	}
 	
-	public function type() : string
+	public function type(): string
 	{
 		return IntegerField::TYPE;
 	}
@@ -48,13 +48,13 @@ final class IntegerFieldChoice implements FieldsChoiceInterface
 //		return false;
 //	}
 	
-	public function domain() : string
+	public function domain(): string
 	{
 		return 'field.integer';
 	}
 	
 	/** Возвращает класс формы для рендера */
-	public function form() : string
+	public function form(): string
 	{
 		return IntegerFieldForm::class;
 	}

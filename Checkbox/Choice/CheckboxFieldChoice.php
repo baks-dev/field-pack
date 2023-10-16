@@ -36,7 +36,7 @@ final class CheckboxFieldChoice implements FieldsChoiceInterface
 		return $key === CheckboxField::TYPE;
 	}
 	
-	public function type() : string
+	public function type(): string
 	{
 		return CheckboxField::TYPE;
 	}
@@ -48,14 +48,14 @@ final class CheckboxFieldChoice implements FieldsChoiceInterface
 //	}
 	
 	
-	public function domain() : string
+	public function domain(): string
 	{
 		return 'field.checkbox';
 	}
 	
 	
 	/** Возвращает класс формы для рендера */
-	public function form() : string
+	public function form(): string
 	{
 		return CheckboxFieldForm::class;
 	}
