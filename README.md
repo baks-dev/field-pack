@@ -14,4 +14,3 @@ $ composer require baks-dev/field-pack
 
 The MIT License (MIT). Обратитесь к [Файлу лицензии](LICENSE.md) за дополнительной информацией.
 
-
