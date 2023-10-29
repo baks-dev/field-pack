@@ -26,7 +26,7 @@ final class InputFieldType extends StringType
 	
 	public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
 	{
-		return $value instanceof InputField ? $value->getValue() : $value;
+		return (string) $value;
 	}
 	
 	

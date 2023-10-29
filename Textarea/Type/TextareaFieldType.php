@@ -26,7 +26,7 @@ final class TextareaFieldType extends TextType
 	
 	public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
 	{
-		return $value instanceof TextareaField ? $value->getValue() : $value;
+		return (string) $value;
 	}
 	
 	
