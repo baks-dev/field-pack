@@ -32,7 +32,12 @@ class BaksDevFieldPackBundle extends AbstractBundle
 			if($current->isDir())
 			{
 				$path = $current->getPathname().'/Resources/config/';
-				
+
+                if(!is_dir($path))
+                {
+                    continue;
+                }
+
 				foreach(new DirectoryIterator($path) as $config)
 				{
 					if($config->isDot() || $config->isDir())
