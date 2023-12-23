@@ -37,20 +37,23 @@ final class InputFieldExtension extends AbstractExtension
     {
         return [
             new TwigFunction(InputField::TYPE, [$this, 'call'], ['needs_environment' => true, 'is_safe' => ['html']]),
+
             new TwigFunction(InputField::TYPE.'_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction('_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
+
             new TwigFunction(InputField::TYPE.'_template', [$this, 'template'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction('_template', [$this, 'template'], ['needs_environment' => true, 'is_safe' => ['html']]),
         ];
     }
 
     public function call(Environment $twig, string $value, string $type, string $label = null): string
     {
-
-
         try
         {
             return $twig->render('@Template/InputField/content.html.twig', ['value' => $value, 'label' => $label]);
-            
-        } catch (LoaderError $loaderError)
+
+        }
+        catch(LoaderError $loaderError)
         {
             return $twig->render('@InputField/content.html.twig', ['value' => $value, 'label' => $label]);
         }
@@ -61,7 +64,8 @@ final class InputFieldExtension extends AbstractExtension
         try
         {
             return $twig->render('@Template/InputField/render.html.twig', ['value' => $value]);
-        } catch (LoaderError $loaderError)
+        }
+        catch(LoaderError $loaderError)
         {
             return $twig->render('@InputField/render.html.twig', ['value' => $value]);
         }
@@ -71,11 +75,11 @@ final class InputFieldExtension extends AbstractExtension
     {
         if($value)
         {
-
             try
             {
                 return $twig->render('@Template/InputField/template.html.twig', ['value' => $value]);
-            } catch (LoaderError $loaderError)
+            }
+            catch(LoaderError $loaderError)
             {
                 return $twig->render('@InputField/template.html.twig', ['value' => $value]);
             }
