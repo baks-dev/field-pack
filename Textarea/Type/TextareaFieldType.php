@@ -20,17 +20,18 @@ namespace BaksDev\Field\Pack\Textarea\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\TextType;
+use Doctrine\DBAL\Types\Type;
 
-final class TextareaFieldType extends TextType
+final class TextareaFieldType extends Type
 {
 	
-	public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
+	public function convertToDatabaseValue($value, AbstractPlatform $platform): string
 	{
 		return (string) $value;
 	}
 	
 	
-	public function convertToPHPValue($value, AbstractPlatform $platform): mixed
+	public function convertToPHPValue($value, AbstractPlatform $platform): ?TextareaField
 	{
 		return !empty($value) ? new TextareaField($value) : null;
 	}
@@ -46,5 +47,10 @@ final class TextareaFieldType extends TextType
 	{
 		return true;
 	}
+
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
+    {
+        return $platform->getClobTypeDeclarationSQL($column);
+    }
 	
 }

@@ -21,15 +21,16 @@ namespace BaksDev\Field\Pack\Integer\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\BigIntType;
 use Doctrine\DBAL\Types\StringType;
+use Doctrine\DBAL\Types\Type;
 
-final class IntegerFieldType extends BigIntType
+final class IntegerFieldType extends Type
 {
-	public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
+	public function convertToDatabaseValue($value, AbstractPlatform $platform): int
 	{
 		return $value instanceof IntegerField ? $value->getValue() * 100 : $value * 100;
 	}
 	
-	public function convertToPHPValue($value, AbstractPlatform $platform): mixed
+	public function convertToPHPValue($value, AbstractPlatform $platform): ?IntegerField
 	{
 		return !empty($value) ? new IntegerField($value) : null;
 	}
@@ -44,6 +45,9 @@ final class IntegerFieldType extends BigIntType
 	{
 		return true;
 	}
-	
-	
+
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
+    {
+        return $platform->getBigIntTypeDeclarationSQL($column);
+    }
 }
