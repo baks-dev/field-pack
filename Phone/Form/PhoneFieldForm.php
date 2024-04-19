@@ -27,9 +27,12 @@ namespace BaksDev\Field\Pack\Phone\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 final class PhoneFieldForm extends AbstractType
 {
@@ -45,18 +48,27 @@ final class PhoneFieldForm extends AbstractType
 	{
 		$builder->addModelTransformer($this->transformer);
 	}
-	
-	
+
 	public function configureOptions(OptionsResolver $resolver) : void
 	{
-//		$resolver->setDefaults([
-//			'data_class' => IntegerFieldDTO::class,
-//		]);
+        $resolver->setDefaults([
+            'attr' => ['data-phone' => 'true'],
+            'constraints' => [
+                new Assert\Regex([
+                    'pattern' => '/^(\+7|\+?\d{1,3})\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}$/',
+                ])
+            ]
+        ]);
 	}
-	
+
 	public function getParent(): string
 	{
-		return TextType::class;
+		//return TextType::class;
+		return TelType::class;
 	}
-	
+
+    public function getBlockPrefix(): string
+    {
+        return 'field_pack_phone';
+    }
 }

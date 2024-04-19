@@ -1,7 +1,7 @@
 {
   "namespaces": [
     {
-      "namespace": "EmailField",
+      "namespace": "field-pack-email",
       "path": "Resources/view"
     }
   ]

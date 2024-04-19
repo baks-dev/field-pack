@@ -43,7 +43,7 @@ final class PhoneFieldChoice implements FieldsChoiceInterface
 
 	public function domain(): string
 	{
-		return 'field.phone';
+		return 'field-pack-phone';
 	}
 	
 	/** Возвращает класс формы для рендера */

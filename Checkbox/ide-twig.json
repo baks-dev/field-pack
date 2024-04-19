@@ -1,7 +1,7 @@
 {
   "namespaces": [
     {
-      "namespace": "CheckboxField",
+      "namespace": "field-pack-checkbox",
       "path": "Resources/view"
     }
   ]
