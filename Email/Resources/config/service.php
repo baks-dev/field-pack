@@ -2,6 +2,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use BaksDev\Field\Pack\Email\Choice\EmailFieldChoice;
 use BaksDev\Field\Pack\Phone\Choice\PhoneFieldChoice;
 
 return static function(ContainerConfigurator $configurator) {
@@ -20,7 +21,7 @@ return static function(ContainerConfigurator $configurator) {
 
     $services->load($NAMESPACE.'Twig\\', $MODULE.'Twig');
 
-    $services->set(PhoneFieldChoice::class)
+    $services->set(EmailFieldChoice::class)
         ->tag('baks.fields.choice');
 
 };

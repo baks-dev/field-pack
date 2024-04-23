@@ -28,30 +28,35 @@ namespace BaksDev\Field\Pack\Email\Choice;
 use BaksDev\Auth\Email\Type\Email\AccountEmail;
 use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
 use BaksDev\Field\Pack\Email\Form\EmailFieldForm;
-use BaksDev\Field\Pack\Phone\Form\PhoneFieldForm;
-use BaksDev\Field\Pack\Phone\Type\PhoneField;
+use Symfony\Component\Validator\Constraints as Assert;
 
 final class EmailFieldChoice implements FieldsChoiceInterface
 {
-	public function equals($key) : bool
-	{
-		return $key === AccountEmail::TYPE;
-	}
-	
-	public function type(): string
-	{
-		return AccountEmail::TYPE;
-	}
+    public function equals($key): bool
+    {
+        return $key === AccountEmail::TYPE;
+    }
 
-	public function domain(): string
-	{
-		return 'field-pack-email';
-	}
-	
-	/** Возвращает класс формы для рендера */
-	public function form(): string
-	{
-		return EmailFieldForm::class;
-	}
-	
+    public function type(): string
+    {
+        return AccountEmail::TYPE;
+    }
+
+    public function domain(): string
+    {
+        return 'field-pack-email';
+    }
+
+    /** Возвращает класс формы для рендера */
+    public function form(): string
+    {
+        return EmailFieldForm::class;
+    }
+
+    public function constraints(): ?array
+    {
+        return [
+            new Assert\Email()
+        ];
+    }
 }

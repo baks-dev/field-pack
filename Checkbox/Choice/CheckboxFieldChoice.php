@@ -40,24 +40,20 @@ final class CheckboxFieldChoice implements FieldsChoiceInterface
 	{
 		return CheckboxField::TYPE;
 	}
-	
-//	public function choice() : bool
-//	{
-//		/** Поле не является выбором */
-//		return false;
-//	}
-	
-	
+
 	public function domain(): string
 	{
-		return 'field.checkbox';
+		return 'field-pack-checkbox';
 	}
-	
-	
+
 	/** Возвращает класс формы для рендера */
 	public function form(): string
 	{
 		return CheckboxFieldForm::class;
 	}
-	
+
+    public function constraints(): ?array
+    {
+        return null;
+    }
 }

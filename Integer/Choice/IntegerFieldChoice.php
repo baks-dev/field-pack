@@ -58,5 +58,10 @@ final class IntegerFieldChoice implements FieldsChoiceInterface
 	{
 		return IntegerFieldForm::class;
 	}
+
+    public function constraints(): ?array
+    {
+        return null;
+    }
 	
 }

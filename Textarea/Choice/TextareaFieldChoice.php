@@ -40,24 +40,20 @@ final class TextareaFieldChoice implements FieldsChoiceInterface
 	{
 		return TextareaField::TYPE;
 	}
-	
-//	public function choice() : bool
-//	{
-//		/** Поле не является выбором */
-//		return false;
-//	}
-	
-	
+
 	public function domain(): string
 	{
-		return 'field.textarea';
+		return 'field-pack-textarea';
 	}
-	
-	
+
 	/** Возвращает класс формы для рендера */
 	public function form(): string
 	{
 		return TextareaFieldForm::class;
 	}
-	
+
+    public function constraints(): ?array
+    {
+        return null;
+    }
 }

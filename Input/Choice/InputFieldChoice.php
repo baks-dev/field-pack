@@ -40,18 +40,11 @@ final class InputFieldChoice implements FieldsChoiceInterface
 	{
 		return InputField::TYPE;
 	}
-	
-	
-//	public function choice() : bool
-//	{
-//		/** Поле не является выбором */
-//		return false;
-//	}
-	
+
 	
 	public function domain(): string
 	{
-		return 'field.input';
+		return 'field-pack-input';
 	}
 	
 	
@@ -60,5 +53,10 @@ final class InputFieldChoice implements FieldsChoiceInterface
 	{
 		return InputFieldForm::class;
 	}
+
+    public function constraints(): ?array
+    {
+        return null;
+    }
 	
 }

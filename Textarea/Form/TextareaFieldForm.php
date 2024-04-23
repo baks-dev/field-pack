@@ -31,30 +31,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class TextareaFieldForm extends AbstractType
 {
-	
-//	public function buildForm(FormBuilderInterface $builder, array $options) : void
-//	{
-//		$builder->add('image', TextType::class, ['required' => false]);
-//
-//		/* Сохранить ******************************************************/
-//		$builder->add(
-//			'Save',
-//			SubmitType::class,
-//			['label' => 'Save', 'label_html' => true, 'attr' => ['class' => 'btn-primary']]
-//		);
-//	}
-	
-	
-	public function configureOptions(OptionsResolver $resolver) : void
-	{
-//		$resolver->setDefaults([
-//			'data_class' => TextareaFieldDTO::class,
-//		]);
-	}
-	
 	public function getParent(): string
 	{
 		return TextareaType::class;
 	}
-	
+
+    public function getBlockPrefix(): string
+    {
+        return 'field_pack_textarea';
+    }
 }

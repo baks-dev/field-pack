@@ -46,12 +46,12 @@ final class IntegerFieldForm extends AbstractType
 	}
 	
 	
-	public function configureOptions(OptionsResolver $resolver) : void
-	{
+//	public function configureOptions(OptionsResolver $resolver) : void
+//	{
 //		$resolver->setDefaults([
 //			'data_class' => IntegerFieldDTO::class,
 //		]);
-	}
+//	}
 	
 	public function getParent(): string
 	{

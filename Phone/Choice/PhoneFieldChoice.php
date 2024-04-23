@@ -28,28 +28,38 @@ namespace BaksDev\Field\Pack\Phone\Choice;
 use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
 use BaksDev\Field\Pack\Phone\Form\PhoneFieldForm;
 use BaksDev\Field\Pack\Phone\Type\PhoneField;
+use Symfony\Component\Validator\Constraints as Assert;
 
 final class PhoneFieldChoice implements FieldsChoiceInterface
 {
-	public function equals($key) : bool
-	{
-		return $key === PhoneField::TYPE;
-	}
-	
-	public function type(): string
-	{
-		return PhoneField::TYPE;
-	}
+    public function equals($key): bool
+    {
+        return $key === PhoneField::TYPE;
+    }
 
-	public function domain(): string
-	{
-		return 'field-pack-phone';
-	}
-	
-	/** Возвращает класс формы для рендера */
-	public function form(): string
-	{
-		return PhoneFieldForm::class;
-	}
-	
+    public function type(): string
+    {
+        return PhoneField::TYPE;
+    }
+
+    public function domain(): string
+    {
+        return 'field-pack-phone';
+    }
+
+    /** Возвращает класс формы для рендера */
+    public function form(): string
+    {
+        return PhoneFieldForm::class;
+    }
+
+    public function constraints(): ?array
+    {
+        return [
+            new Assert\Regex([
+                'pattern' => '/^(\+7|\+?\d{1,3})\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}$/',
+            ])
+        ];
+
+    }
 }
