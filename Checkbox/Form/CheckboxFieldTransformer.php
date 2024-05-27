@@ -25,34 +25,18 @@ declare(strict_types=1);
 
 namespace BaksDev\Field\Pack\Checkbox\Form;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\DataTransformerInterface;
 
-final class CheckboxFieldForm extends AbstractType
+final class CheckboxFieldTransformer implements DataTransformerInterface
 {
-    private CheckboxFieldTransformer $transformer;
-
-    public function __construct(CheckboxFieldTransformer $transformer)
-    {
-        $this->transformer = $transformer;
-    }
-
-    public function buildForm(FormBuilderInterface $builder, array $options) : void
-    {
-        $builder->addModelTransformer($this->transformer);
-    }
-
-
-    public function getParent(): string
+	
+	public function transform(mixed $value) : bool
 	{
-		return CheckboxType::class;
+		return $value === 'true';
 	}
-
-    public function getBlockPrefix(): string
-    {
-        return 'field_pack_checkbox';
-    }
-
+	
+	public function reverseTransform(mixed $value): string
+	{
+		return $value ? 'true' : 'false';
+	}
 }

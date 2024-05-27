@@ -11,10 +11,16 @@ return static function (ContainerConfigurator $configurator) {
 		->autowire(true)
 		->autoconfigure(true)
 	;
-	
+
+    $namespace = 'BaksDev\Field\Pack\Checkbox';
+
 	$services->set(CheckboxFieldChoice::class)
 		->tag('baks.fields.choice')
 	;
+
+    $services->load($namespace.'\Form\\', __DIR__.'/../../Form');
+    $services->load($namespace.'\Twig\\', __DIR__.'/../../Twig');
+
 
 };
 
