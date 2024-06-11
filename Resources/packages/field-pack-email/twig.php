@@ -29,7 +29,7 @@ use Symfony\Config\TwigConfig;
 return static function(TwigConfig $twig) {
 
     $twig->path(
-        BaksDevFieldPackBundle::PATH.'Resources/view',
+        BaksDevFieldPackBundle::PATH.'Email/Resources/view',
         'field-pack-email'
     );
 
