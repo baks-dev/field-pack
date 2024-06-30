@@ -13,12 +13,12 @@ declare(strict_types=1);
 namespace BaksDev\Field\Pack;
 
 use BaksDev\Field\Pack\Checkbox\Choice\CheckboxFieldChoice;
+use BaksDev\Field\Pack\Contact\Choice\ContactFieldChoice;
 use BaksDev\Field\Pack\Email\Choice\EmailFieldChoice;
 use BaksDev\Field\Pack\Input\Choice\InputFieldChoice;
 use BaksDev\Field\Pack\Integer\Choice\IntegerFieldChoice;
 use BaksDev\Field\Pack\Phone\Choice\PhoneFieldChoice;
 use BaksDev\Field\Pack\Textarea\Choice\TextareaFieldChoice;
-use DirectoryIterator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
@@ -51,6 +51,12 @@ class BaksDevFieldPackBundle extends AbstractBundle
         $services->load(self::NAMESPACE.'Input\Form\\', self::PATH.'Input/Form');
         $services->load(self::NAMESPACE.'Input\Twig\\', self::PATH.'Input/Twig');
         $services->set(InputFieldChoice::class)
+            ->tag('baks.fields.choice');
+
+
+        $services->load(self::NAMESPACE.'Contact\Form\\', self::PATH.'Contact/Form');
+        $services->load(self::NAMESPACE.'Contact\Twig\\', self::PATH.'Contact/Twig');
+        $services->set(ContactFieldChoice::class)
             ->tag('baks.fields.choice');
 
         $services->load(self::NAMESPACE.'Integer\Form\\', self::PATH.'Integer/Form');
