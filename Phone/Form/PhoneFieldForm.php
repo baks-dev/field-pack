@@ -30,30 +30,29 @@ use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
 final class PhoneFieldForm extends AbstractType
 {
-	private $transformer;
-	
-	public function __construct(PhoneFieldTransformer $transformer)
-	{
-		$this->transformer = $transformer;
-	}
-	
-	public function buildForm(FormBuilderInterface $builder, array $options) : void
-	{
-		$builder->addModelTransformer($this->transformer);
-	}
+    private $transformer;
 
-//	public function configureOptions(OptionsResolver $resolver) : void
-//	{
-//
-//	}
+    public function __construct(PhoneFieldTransformer $transformer)
+    {
+        $this->transformer = $transformer;
+    }
 
-	public function getParent(): string
-	{
-		return TelType::class;
-	}
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder->addModelTransformer($this->transformer);
+    }
+
+    //	public function configureOptions(OptionsResolver $resolver) : void
+    //	{
+    //
+    //	}
+
+    public function getParent(): string
+    {
+        return TelType::class;
+    }
 
     public function getBlockPrefix(): string
     {
