@@ -24,20 +24,19 @@
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use BaksDev\Field\Pack\BaksDevFieldPackBundle;
-use BaksDev\Field\Pack\Textarea\Choice\TextareaFieldChoice;
+use Symfony\Config\FrameworkConfig;
 
-return static function(ContainerConfigurator $configurator) {
+return static function (FrameworkConfig $config) {
 
-    $services = $configurator->services()
-        ->defaults()
-        ->autowire(true)
-        ->autoconfigure(true);
-
-    $NAMESPACE = BaksDevFieldPackBundle::NAMESPACE;
-    $PATH = BaksDevFieldPackBundle::PATH;
-
-    $services->set(TextareaFieldChoice::class)
-        ->tag('baks.fields.choice');
-
+    $config
+        ->translator()
+        ->paths([
+            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Checkbox', 'Resources', 'translations', '']),
+            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Contact', 'Resources', 'translations', '']),
+            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Email', 'Resources', 'translations', '']),
+            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Input', 'Resources', 'translations', '']),
+            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Integer', 'Resources', 'translations', '']),
+            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Phone', 'Resources', 'translations', '']),
+            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Textarea', 'Resources', 'translations', ''])
+        ]);
 };
-

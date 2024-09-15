@@ -26,15 +26,40 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 use BaksDev\Field\Pack\BaksDevFieldPackBundle;
 use Symfony\Config\TwigConfig;
 
-return static function(TwigConfig $twig) {
+return static function (TwigConfig $twig) {
 
     $twig->path(
-        BaksDevFieldPackBundle::PATH.'Email/Resources/view',
+        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Checkbox', 'Resources', 'view', '']), // .'Checkbox/Resources/view',
+        'field-pack-checkbox'
+    );
+
+    $twig->path(
+        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Contact', 'Resources', 'view', '']), // .'Contact/Resources/view',
+        'field-pack-contact'
+    );
+
+    $twig->path(
+        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Email', 'Resources', 'view', '']), // .'Email/Resources/view',
         'field-pack-email'
     );
 
+    $twig->path(
+        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Input', 'Resources', 'view', '']), // .'Input/Resources/view',
+        'field-pack-input'
+    );
+
+    $twig->path(
+        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Integer', 'Resources', 'view', '']), // .'Integer/Resources/view',
+        'field-pack-integer'
+    );
+
+    $twig->path(
+        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Phone', 'Resources', 'view', '']), // .'Phone/Resources/view',
+        'field-pack-phone'
+    );
+
+    $twig->path(
+        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Textarea', 'Resources', 'view', '']), // .'Textarea/Resources/view',
+        'field-pack-textarea'
+    );
 };
-
-
-
-
