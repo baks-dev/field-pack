@@ -20,25 +20,45 @@ namespace BaksDev\Field\Pack\Phone\Type;
 
 final class PhoneField
 {
-	public const TYPE = 'phone_field';
-	
-	private string $value;
-	
-	
-	public function __construct(string $value)
-	{
-		$this->value = $value;
-	}
-	
-	
-	public function __toString(): string
-	{
-		return $this->value;
-	}
-	
-	
-	public function getValue(): string
-	{
-		return $this->value;
-	}
+    public const TYPE = 'phone_field';
+
+    private string $value;
+
+
+    public function __construct(string $value)
+    {
+        $this->value = $value;
+    }
+
+
+    public function __toString(): string
+    {
+        return $this->value;
+    }
+
+
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    public static function formater(string $phone): string
+    {
+        // Убираем все символы, кроме цифр и знака + в начале
+        $emptyPhone = preg_replace('/[^\d+]/', '', $phone);
+
+        // Проверяем, начинается ли строка с +7
+        if(preg_match('/^\+7(\d{10})$/', $emptyPhone, $matches))
+        {
+            // Форматируем номер в нужный формат
+            $formattedPhone = '+7 ('.substr($matches[1], 0, 3).') '.
+                substr($matches[1], 3, 3).'-'.
+                substr($matches[1], 6, 2).'-'.
+                substr($matches[1], 8, 2);
+
+            return $formattedPhone;
+        }
+
+        return $phone;
+    }
 }
