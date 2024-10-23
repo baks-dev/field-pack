@@ -1,6 +1,6 @@
 <?php
 
 return [
-	//'placeholder' => 'Selection button (checkbox)',
-	'label' => 'Phone',
+    //'placeholder' => 'Selection button (checkbox)',
+    'label' => 'Phone',
 ];

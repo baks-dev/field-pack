@@ -33,49 +33,49 @@ use Twig\TwigFunction;
 
 final class CheckboxFieldExtension extends AbstractExtension
 {
-	public function getFunctions() : array
-	{
-		return [
-			new TwigFunction(CheckboxField::TYPE, [$this, 'content'], ['needs_environment' => true, 'is_safe' => ['html']]),
-			new TwigFunction(CheckboxField::TYPE.'_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
-			new TwigFunction(CheckboxField::TYPE.'_template', [$this, 'template'], ['needs_environment' => true, 'is_safe' => ['html']]),
-		];
-	}
-	
-	public function content(Environment $twig, string $value, string $type, string $label = null): string
-	{
-		try
-		{
-			return $twig->render('@Template/field-pack/checkbox/content.html.twig', ['value' => $value, 'label' => $label]);
-		}
-		catch(LoaderError $loaderError)
-		{
-			return $twig->render('@field-pack-checkbox/content.html.twig', ['value' => $value, 'label' => $label]);
-		}
-	}
-	
-	
-	public function render(Environment $twig, string $value): string
-	{
-		try
-		{
-			return $twig->render('@Template/field-pack/checkbox/render.html.twig', ['value' => $value]);
-		}
-		catch(LoaderError $loaderError)
-		{
-			return $twig->render('@field-pack-checkbox/render.html.twig', ['value' => $value]);
-		}
-	}
-	
-	public function template(Environment $twig, string $value): string
-	{
-		try
-		{
-			return $twig->render('@Template/field-pack/checkbox/template.html.twig', ['value' => $value]);
-		}
-		catch(LoaderError $loaderError)
-		{
-			return $twig->render('@field-pack-checkbox/template.html.twig', ['value' => $value]);
-		}
-	}
+    public function getFunctions(): array
+    {
+        return [
+            new TwigFunction(CheckboxField::TYPE, [$this, 'content'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction(CheckboxField::TYPE.'_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction(CheckboxField::TYPE.'_template', [$this, 'template'], ['needs_environment' => true, 'is_safe' => ['html']]),
+        ];
+    }
+
+    public function content(Environment $twig, string $value, string $type, ?string $label = null): string
+    {
+        try
+        {
+            return $twig->render('@Template/field-pack/checkbox/content.html.twig', ['value' => $value, 'label' => $label]);
+        }
+        catch(LoaderError $loaderError)
+        {
+            return $twig->render('@field-pack-checkbox/content.html.twig', ['value' => $value, 'label' => $label]);
+        }
+    }
+
+
+    public function render(Environment $twig, string $value): string
+    {
+        try
+        {
+            return $twig->render('@Template/field-pack/checkbox/render.html.twig', ['value' => $value]);
+        }
+        catch(LoaderError $loaderError)
+        {
+            return $twig->render('@field-pack-checkbox/render.html.twig', ['value' => $value]);
+        }
+    }
+
+    public function template(Environment $twig, string $value): string
+    {
+        try
+        {
+            return $twig->render('@Template/field-pack/checkbox/template.html.twig', ['value' => $value]);
+        }
+        catch(LoaderError $loaderError)
+        {
+            return $twig->render('@field-pack-checkbox/template.html.twig', ['value' => $value]);
+        }
+    }
 }

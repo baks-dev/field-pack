@@ -26,7 +26,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 use BaksDev\Field\Pack\BaksDevFieldPackBundle;
 use Symfony\Config\TwigConfig;
 
-return static function (TwigConfig $twig) {
+return static function(TwigConfig $twig) {
 
     $twig->path(
         BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Checkbox', 'Resources', 'view', '']), // .'Checkbox/Resources/view',

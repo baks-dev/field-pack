@@ -27,14 +27,13 @@ namespace BaksDev\Field\Pack\Textarea\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class TextareaFieldForm extends AbstractType
 {
-	public function getParent(): string
-	{
-		return TextareaType::class;
-	}
+    public function getParent(): string
+    {
+        return TextareaType::class;
+    }
 
     public function getBlockPrefix(): string
     {

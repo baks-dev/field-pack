@@ -16,7 +16,7 @@ use BaksDev\Field\Pack\Textarea\Type\TextareaField;
 use BaksDev\Field\Pack\Textarea\Type\TextareaFieldType;
 use Symfony\Config\DoctrineConfig;
 
-return static function (DoctrineConfig $doctrine) {
+return static function(DoctrineConfig $doctrine) {
 
     $doctrine->dbal()->type(CheckboxField::TYPE)->class(CheckboxFieldType::class);
 

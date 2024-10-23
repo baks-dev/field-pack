@@ -46,7 +46,7 @@ final class ContactFieldExtension extends AbstractExtension
         ];
     }
 
-    public function call(Environment $twig, string $value, string $type, string $label = null): string
+    public function call(Environment $twig, string $value, string $type, ?string $label = null): string
     {
         try
         {

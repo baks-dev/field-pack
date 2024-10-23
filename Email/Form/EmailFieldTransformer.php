@@ -26,23 +26,24 @@ declare(strict_types=1);
 namespace BaksDev\Field\Pack\Email\Form;
 
 use BaksDev\Auth\Email\Type\Email\AccountEmail;
-use BaksDev\Reference\Clothing\Type\SizeClothing;
 use Symfony\Component\Form\DataTransformerInterface;
-use Symfony\Component\Form\Exception\TransformationFailedException;
 
 final class EmailFieldTransformer implements DataTransformerInterface
 {
-	
-	public function transform(mixed $value): ?AccountEmail
-	{
-        if(empty($value)) { return null; }
+
+    public function transform(mixed $value): ?AccountEmail
+    {
+        if(empty($value))
+        {
+            return null;
+        }
 
         return new AccountEmail($value);
-	}
-	
-	public function reverseTransform(mixed $value): string
-	{
-		return (string) $value;
-	}
-	
+    }
+
+    public function reverseTransform(mixed $value): string
+    {
+        return (string) $value;
+    }
+
 }

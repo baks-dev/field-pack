@@ -26,19 +26,18 @@ declare(strict_types=1);
 namespace BaksDev\Field\Pack\Phone\Form;
 
 use Symfony\Component\Form\DataTransformerInterface;
-use Symfony\Component\Form\Exception\TransformationFailedException;
 
 final class PhoneFieldTransformer implements DataTransformerInterface
 {
-	
-	public function transform(mixed $value): string
-	{
-		return (string) $value;
-	}
-	
-	public function reverseTransform(mixed $value): string
-	{
-		return (string) $value;
-	}
-	
+
+    public function transform(mixed $value): string
+    {
+        return (string) $value;
+    }
+
+    public function reverseTransform(mixed $value): string
+    {
+        return (string) $value;
+    }
+
 }

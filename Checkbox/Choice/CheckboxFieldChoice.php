@@ -31,26 +31,26 @@ use BaksDev\Field\Pack\Checkbox\Type\CheckboxField;
 
 final class CheckboxFieldChoice implements FieldsChoiceInterface
 {
-	public function equals($key) : bool
-	{
-		return $key === CheckboxField::TYPE;
-	}
-	
-	public function type(): string
-	{
-		return CheckboxField::TYPE;
-	}
+    public function equals($key): bool
+    {
+        return $key === CheckboxField::TYPE;
+    }
 
-	public function domain(): string
-	{
-		return 'field-pack-checkbox';
-	}
+    public function type(): string
+    {
+        return CheckboxField::TYPE;
+    }
 
-	/** Возвращает класс формы для рендера */
-	public function form(): string
-	{
-		return CheckboxFieldForm::class;
-	}
+    public function domain(): string
+    {
+        return 'field-pack-checkbox';
+    }
+
+    /** Возвращает класс формы для рендера */
+    public function form(): string
+    {
+        return CheckboxFieldForm::class;
+    }
 
     public function constraints(): ?array
     {

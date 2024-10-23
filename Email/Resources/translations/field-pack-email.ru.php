@@ -1,7 +1,7 @@
 <?php
 
 return [
-	//'placeholder' => 'Кнопка выбора (checkbox)',
-	'label' => 'Электронная почта',
-	
+    //'placeholder' => 'Кнопка выбора (checkbox)',
+    'label' => 'Электронная почта',
+
 ];

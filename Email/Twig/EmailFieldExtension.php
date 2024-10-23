@@ -26,7 +26,6 @@
 namespace BaksDev\Field\Pack\Email\Twig;
 
 use BaksDev\Auth\Email\Type\Email\AccountEmail;
-use BaksDev\Field\Pack\Phone\Type\PhoneField;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Extension\AbstractExtension;
@@ -34,49 +33,49 @@ use Twig\TwigFunction;
 
 final class EmailFieldExtension extends AbstractExtension
 {
-	public function getFunctions() : array
-	{
-		return [
-			new TwigFunction(AccountEmail::TYPE, [$this, 'content'], ['needs_environment' => true, 'is_safe' => ['html']]),
-			new TwigFunction(AccountEmail::TYPE.'_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
-			new TwigFunction(AccountEmail::TYPE.'_template', [$this, 'template'], ['needs_environment' => true, 'is_safe' => ['html']]),
-		];
-	}
-	
-	public function content(Environment $twig, string $value, string $type, string $label = null): string
-	{
-		try
-		{
-			return $twig->render('@Template/field-pack/email/content.html.twig', ['value' => $value, 'label' => $label]);
-		}
-		catch(LoaderError $loaderError)
-		{
-			return $twig->render('@field-pack-email/content.html.twig', ['value' => $value, 'label' => $label]);
-		}
-	}
-	
-	
-	public function render(Environment $twig, string $value): string
-	{
-		try
-		{
-			return $twig->render('@Template/field-pack/email/render.html.twig', ['value' => $value]);
-		}
-		catch(LoaderError $loaderError)
-		{
-			return $twig->render('@field-pack-email/render.html.twig', ['value' => $value]);
-		}
-	}
-	
-	public function template(Environment $twig, string $value): string
-	{
-		try
-		{
-			return $twig->render('@Template/field-pack/email/template.html.twig', ['value' => $value]);
-		}
-		catch(LoaderError $loaderError)
-		{
-			return $twig->render('@field-pack-email/template.html.twig', ['value' => $value]);
-		}
-	}
+    public function getFunctions(): array
+    {
+        return [
+            new TwigFunction(AccountEmail::TYPE, [$this, 'content'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction(AccountEmail::TYPE.'_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction(AccountEmail::TYPE.'_template', [$this, 'template'], ['needs_environment' => true, 'is_safe' => ['html']]),
+        ];
+    }
+
+    public function content(Environment $twig, string $value, string $type, ?string $label = null): string
+    {
+        try
+        {
+            return $twig->render('@Template/field-pack/email/content.html.twig', ['value' => $value, 'label' => $label]);
+        }
+        catch(LoaderError $loaderError)
+        {
+            return $twig->render('@field-pack-email/content.html.twig', ['value' => $value, 'label' => $label]);
+        }
+    }
+
+
+    public function render(Environment $twig, string $value): string
+    {
+        try
+        {
+            return $twig->render('@Template/field-pack/email/render.html.twig', ['value' => $value]);
+        }
+        catch(LoaderError $loaderError)
+        {
+            return $twig->render('@field-pack-email/render.html.twig', ['value' => $value]);
+        }
+    }
+
+    public function template(Environment $twig, string $value): string
+    {
+        try
+        {
+            return $twig->render('@Template/field-pack/email/template.html.twig', ['value' => $value]);
+        }
+        catch(LoaderError $loaderError)
+        {
+            return $twig->render('@field-pack-email/template.html.twig', ['value' => $value]);
+        }
+    }
 }

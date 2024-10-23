@@ -12,15 +12,6 @@ declare(strict_types=1);
 
 namespace BaksDev\Field\Pack;
 
-use BaksDev\Field\Pack\Checkbox\Choice\CheckboxFieldChoice;
-use BaksDev\Field\Pack\Contact\Choice\ContactFieldChoice;
-use BaksDev\Field\Pack\Email\Choice\EmailFieldChoice;
-use BaksDev\Field\Pack\Input\Choice\InputFieldChoice;
-use BaksDev\Field\Pack\Integer\Choice\IntegerFieldChoice;
-use BaksDev\Field\Pack\Phone\Choice\PhoneFieldChoice;
-use BaksDev\Field\Pack\Textarea\Choice\TextareaFieldChoice;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class BaksDevFieldPackBundle extends AbstractBundle
@@ -29,7 +20,7 @@ class BaksDevFieldPackBundle extends AbstractBundle
 
     public const PATH = __DIR__.DIRECTORY_SEPARATOR;
 
-//    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
+    //    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     //    {
     //        $services = $container->services()
     //            ->defaults()

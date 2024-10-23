@@ -32,7 +32,7 @@ use BaksDev\Field\Pack\Integer\Choice\IntegerFieldChoice;
 use BaksDev\Field\Pack\Phone\Choice\PhoneFieldChoice;
 use BaksDev\Field\Pack\Textarea\Choice\TextareaFieldChoice;
 
-return static function (ContainerConfigurator $configurator) {
+return static function(ContainerConfigurator $configurator) {
 
     $services = $configurator->services()
         ->defaults()

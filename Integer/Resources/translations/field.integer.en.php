@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'placeholder' => 'Numeric field',
-	'label' => 'Numeric field',
+    'placeholder' => 'Numeric field',
+    'label' => 'Numeric field',
 
 ];

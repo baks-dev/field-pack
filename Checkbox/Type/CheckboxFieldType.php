@@ -19,37 +19,36 @@
 namespace BaksDev\Field\Pack\Checkbox\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\BooleanType;
 use Doctrine\DBAL\Types\Type;
 
 final class CheckboxFieldType extends Type
 {
-	
-	public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
-	{
-		return $value instanceof CheckboxField ? $value->getValue() : false;
-	}
-	
-	public function convertToPHPValue($value, AbstractPlatform $platform): ?CheckboxField
-	{
-		return !empty($value) ? new CheckboxField($value) : null;
-	}
-	
-	
-	public function getName(): string
-	{
-		return CheckboxField::TYPE;
-	}
-	
-	
-	public function requiresSQLCommentHint(AbstractPlatform $platform) : bool
-	{
-		return true;
-	}
+
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
+    {
+        return $value instanceof CheckboxField ? $value->getValue() : false;
+    }
+
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?CheckboxField
+    {
+        return !empty($value) ? new CheckboxField($value) : null;
+    }
+
+
+    public function getName(): string
+    {
+        return CheckboxField::TYPE;
+    }
+
+
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
+    {
+        return true;
+    }
 
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
         return $platform->getBooleanTypeDeclarationSQL($column);
     }
-	
+
 }

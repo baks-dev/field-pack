@@ -28,7 +28,6 @@ namespace BaksDev\Field\Pack\Checkbox\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class CheckboxFieldForm extends AbstractType
 {
@@ -39,16 +38,16 @@ final class CheckboxFieldForm extends AbstractType
         $this->transformer = $transformer;
     }
 
-    public function buildForm(FormBuilderInterface $builder, array $options) : void
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->addModelTransformer($this->transformer);
     }
 
 
     public function getParent(): string
-	{
-		return CheckboxType::class;
-	}
+    {
+        return CheckboxType::class;
+    }
 
     public function getBlockPrefix(): string
     {

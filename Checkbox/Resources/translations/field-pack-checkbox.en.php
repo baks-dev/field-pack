@@ -1,6 +1,6 @@
 <?php
 
 return [
-	'placeholder' => 'Selection button (checkbox)',
-	'label' => 'Selection button (checkbox)',
+    'placeholder' => 'Selection button (checkbox)',
+    'label' => 'Selection button (checkbox)',
 ];

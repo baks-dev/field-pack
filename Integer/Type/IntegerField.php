@@ -20,24 +20,24 @@ namespace BaksDev\Field\Pack\Integer\Type;
 
 final class IntegerField
 {
-	public const TYPE = 'integer_field';
-	
-	private int $value;
-	
-	
-	public function __construct(int $value)
-	{
-		$this->value = $value;
-	}
-	
-	public function __toString(): string
-	{
-		return $this->value;
-	}
-	
-	
-	public function getValue() : int
-	{
-		return $this->value;
-	}
+    public const TYPE = 'integer_field';
+
+    private int $value;
+
+
+    public function __construct(int $value)
+    {
+        $this->value = $value;
+    }
+
+    public function __toString(): string
+    {
+        return $this->value;
+    }
+
+
+    public function getValue(): int
+    {
+        return $this->value;
+    }
 }

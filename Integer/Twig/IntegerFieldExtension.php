@@ -25,10 +25,8 @@
 
 namespace BaksDev\Field\Pack\Integer\Twig;
 
-use BaksDev\Field\Pack\Input\Type\InputField;
 use BaksDev\Field\Pack\Integer\Type\IntegerField;
 use BaksDev\Field\Tire\Profile\Type\TireProfileEnum;
-use BaksDev\Field\Tire\Profile\Type\TireProfileField;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Extension\AbstractExtension;
@@ -36,49 +34,49 @@ use Twig\TwigFunction;
 
 final class IntegerFieldExtension extends AbstractExtension
 {
-	public function getFunctions() : array
-	{
-		return [
-			new TwigFunction(IntegerField::TYPE, [$this, 'call'], ['needs_environment' => true, 'is_safe' => ['html']]),
-			new TwigFunction(IntegerField::TYPE.'_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
-			new TwigFunction(IntegerField::TYPE.'_template', [$this, 'template'], ['needs_environment' => true, 'is_safe' => ['html']]),
-		];
-	}
-	
-	public function call(Environment $twig, string $value): string
-	{
-		try
-		{
-			return $twig->render('@Template/InputField/content.html.twig', ['value' => $value]);
-		}
-		catch(LoaderError $loaderError)
-		{
-			return $twig->render('@InputField/content.html.twig', ['value' => $value]);
-		}
-	}
-	
-	
-	public function render(Environment $twig, string $value): string
-	{
-		try
-		{
-			return $twig->render('@Template/InputField/render.html.twig', ['value' => $value]);
-		}
-		catch(LoaderError $loaderError)
-		{
-			return $twig->render('@InputField/render.html.twig', ['value' => $value]);
-		}
-	}
-	
-	public function template(Environment $twig, string $value): string
-	{
-		try
-		{
-			return $twig->render('@Template/InputField/template.html.twig', ['value' => $value]);
-		}
-		catch(LoaderError $loaderError)
-		{
-			return $twig->render('@InputField/template.html.twig', ['value' => $value]);
-		}
-	}
+    public function getFunctions(): array
+    {
+        return [
+            new TwigFunction(IntegerField::TYPE, [$this, 'call'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction(IntegerField::TYPE.'_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
+            new TwigFunction(IntegerField::TYPE.'_template', [$this, 'template'], ['needs_environment' => true, 'is_safe' => ['html']]),
+        ];
+    }
+
+    public function call(Environment $twig, string $value): string
+    {
+        try
+        {
+            return $twig->render('@Template/InputField/content.html.twig', ['value' => $value]);
+        }
+        catch(LoaderError $loaderError)
+        {
+            return $twig->render('@InputField/content.html.twig', ['value' => $value]);
+        }
+    }
+
+
+    public function render(Environment $twig, string $value): string
+    {
+        try
+        {
+            return $twig->render('@Template/InputField/render.html.twig', ['value' => $value]);
+        }
+        catch(LoaderError $loaderError)
+        {
+            return $twig->render('@InputField/render.html.twig', ['value' => $value]);
+        }
+    }
+
+    public function template(Environment $twig, string $value): string
+    {
+        try
+        {
+            return $twig->render('@Template/InputField/template.html.twig', ['value' => $value]);
+        }
+        catch(LoaderError $loaderError)
+        {
+            return $twig->render('@InputField/template.html.twig', ['value' => $value]);
+        }
+    }
 }

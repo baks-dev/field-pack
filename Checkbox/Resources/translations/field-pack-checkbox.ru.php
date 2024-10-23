@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'placeholder' => 'Кнопка выбора (checkbox)',
-	'label' => 'Кнопка выбора (checkbox)',
-	
+    'placeholder' => 'Кнопка выбора (checkbox)',
+    'label' => 'Кнопка выбора (checkbox)',
+
 ];

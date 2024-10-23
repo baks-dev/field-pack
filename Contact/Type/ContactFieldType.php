@@ -19,7 +19,6 @@
 namespace BaksDev\Field\Pack\Contact\Type;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\StringType;
 use Doctrine\DBAL\Types\Type;
 
 final class ContactFieldType extends Type

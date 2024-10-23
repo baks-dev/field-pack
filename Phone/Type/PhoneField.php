@@ -30,18 +30,6 @@ final class PhoneField
         $this->value = $value;
     }
 
-
-    public function __toString(): string
-    {
-        return $this->value;
-    }
-
-
-    public function getValue(): string
-    {
-        return $this->value;
-    }
-
     public static function formater(string $phone): string
     {
         // Убираем все символы, кроме цифр и знака + в начале
@@ -60,5 +48,15 @@ final class PhoneField
         }
 
         return $phone;
+    }
+
+    public function __toString(): string
+    {
+        return $this->value;
+    }
+
+    public function getValue(): string
+    {
+        return $this->value;
     }
 }

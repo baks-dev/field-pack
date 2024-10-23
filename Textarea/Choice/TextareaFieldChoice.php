@@ -31,26 +31,26 @@ use BaksDev\Field\Pack\Textarea\Type\TextareaField;
 
 final class TextareaFieldChoice implements FieldsChoiceInterface
 {
-	public function equals($key) : bool
-	{
-		return $key === TextareaField::TYPE;
-	}
-	
-	public function type(): string
-	{
-		return TextareaField::TYPE;
-	}
+    public function equals($key): bool
+    {
+        return $key === TextareaField::TYPE;
+    }
 
-	public function domain(): string
-	{
-		return 'field-pack-textarea';
-	}
+    public function type(): string
+    {
+        return TextareaField::TYPE;
+    }
 
-	/** Возвращает класс формы для рендера */
-	public function form(): string
-	{
-		return TextareaFieldForm::class;
-	}
+    public function domain(): string
+    {
+        return 'field-pack-textarea';
+    }
+
+    /** Возвращает класс формы для рендера */
+    public function form(): string
+    {
+        return TextareaFieldForm::class;
+    }
 
     public function constraints(): ?array
     {

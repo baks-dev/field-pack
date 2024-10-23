@@ -31,32 +31,32 @@ use BaksDev\Field\Pack\Input\Type\InputField;
 
 final class InputFieldChoice implements FieldsChoiceInterface
 {
-	public function equals($key) : bool
-	{
-		return $key === InputField::TYPE;
-	}
-	
-	public function type(): string
-	{
-		return InputField::TYPE;
-	}
+    public function equals($key): bool
+    {
+        return $key === InputField::TYPE;
+    }
 
-	
-	public function domain(): string
-	{
-		return 'field-pack-input';
-	}
-	
-	
-	/** Возвращает класс формы для рендера */
-	public function form(): string
-	{
-		return InputFieldForm::class;
-	}
+    public function type(): string
+    {
+        return InputField::TYPE;
+    }
+
+
+    public function domain(): string
+    {
+        return 'field-pack-input';
+    }
+
+
+    /** Возвращает класс формы для рендера */
+    public function form(): string
+    {
+        return InputFieldForm::class;
+    }
 
     public function constraints(): ?array
     {
         return null;
     }
-	
+
 }

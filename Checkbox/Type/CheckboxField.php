@@ -20,17 +20,17 @@ namespace BaksDev\Field\Pack\Checkbox\Type;
 
 final class CheckboxField
 {
-	public const TYPE = 'checkbox_field';
-	
-	private bool $value;
-	
-	public function __construct(bool $value)
-	{
-		$this->value = $value;
-	}
-	
-	public function getValue() : bool
-	{
-		return $this->value;
-	}
+    public const TYPE = 'checkbox_field';
+
+    private bool $value;
+
+    public function __construct(bool $value)
+    {
+        $this->value = $value;
+    }
+
+    public function getValue(): bool
+    {
+        return $this->value;
+    }
 }

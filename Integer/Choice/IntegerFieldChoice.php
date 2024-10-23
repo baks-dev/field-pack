@@ -26,42 +26,41 @@ declare(strict_types=1);
 namespace BaksDev\Field\Pack\Integer\Choice;
 
 use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
-
 use BaksDev\Field\Pack\Integer\Form\IntegerFieldForm;
 use BaksDev\Field\Pack\Integer\Type\IntegerField;
 
 final class IntegerFieldChoice implements FieldsChoiceInterface
 {
-	public function equals($key) : bool
-	{
-		return $key === IntegerField::TYPE;
-	}
-	
-	public function type(): string
-	{
-		return IntegerField::TYPE;
-	}
-	
-//	public function choice() : bool
-//	{
-//		/** Поле не является выбором */
-//		return false;
-//	}
-	
-	public function domain(): string
-	{
-		return 'field.integer';
-	}
-	
-	/** Возвращает класс формы для рендера */
-	public function form(): string
-	{
-		return IntegerFieldForm::class;
-	}
+    public function equals($key): bool
+    {
+        return $key === IntegerField::TYPE;
+    }
+
+    public function type(): string
+    {
+        return IntegerField::TYPE;
+    }
+
+    //	public function choice() : bool
+    //	{
+    //		/** Поле не является выбором */
+    //		return false;
+    //	}
+
+    public function domain(): string
+    {
+        return 'field.integer';
+    }
+
+    /** Возвращает класс формы для рендера */
+    public function form(): string
+    {
+        return IntegerFieldForm::class;
+    }
 
     public function constraints(): ?array
     {
         return null;
     }
-	
+
 }
