@@ -20,7 +20,7 @@ namespace BaksDev\Field\Pack\Phone\Type;
 
 final class PhoneField
 {
-    public const TYPE = 'phone_field';
+    public const string TYPE = 'phone_field';
 
     private string $value;
 

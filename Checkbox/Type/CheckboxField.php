@@ -20,7 +20,7 @@ namespace BaksDev\Field\Pack\Checkbox\Type;
 
 final class CheckboxField
 {
-    public const TYPE = 'checkbox_field';
+    public const string TYPE = 'checkbox_field';
 
     private bool $value;
 

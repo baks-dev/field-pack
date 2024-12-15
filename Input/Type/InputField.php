@@ -20,7 +20,7 @@ namespace BaksDev\Field\Pack\Input\Type;
 
 final class InputField
 {
-    public const TYPE = 'input_field';
+    public const string TYPE = 'input_field';
 
     private string $value;
 

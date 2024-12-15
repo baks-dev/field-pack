@@ -20,7 +20,7 @@ namespace BaksDev\Field\Pack\Integer\Type;
 
 final class IntegerField
 {
-    public const TYPE = 'integer_field';
+    public const string TYPE = 'integer_field';
 
     private int $value;
 

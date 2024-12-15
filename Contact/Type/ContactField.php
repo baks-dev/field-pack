@@ -20,7 +20,7 @@ namespace BaksDev\Field\Pack\Contact\Type;
 
 final class ContactField
 {
-    public const TYPE = 'contact_field';
+    public const string TYPE = 'contact_field';
 
     private string $value;
 

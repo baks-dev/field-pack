@@ -20,7 +20,7 @@ namespace BaksDev\Field\Pack\Textarea\Type;
 
 final class TextareaField
 {
-    public const TYPE = 'textarea_field';
+    public const string TYPE = 'textarea_field';
 
     private string $value;
 
