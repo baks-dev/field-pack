@@ -31,16 +31,16 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class PhoneFieldForm extends AbstractType
 {
-    private $transformer;
+    private ?PhoneFieldTransformer $transformer;
 
-    public function __construct(PhoneFieldTransformer $transformer)
+    public function __construct(?PhoneFieldTransformer $transformer = null)
     {
         $this->transformer = $transformer;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->addModelTransformer($this->transformer);
+        $this->transformer ? $builder->addModelTransformer($this->transformer) : false;
     }
 
     //	public function configureOptions(OptionsResolver $resolver) : void
