@@ -42,6 +42,12 @@ final class PhoneFieldChoice implements FieldsChoiceInterface
         return PhoneField::TYPE;
     }
 
+    /** Возвращает класс поля */
+    public function class(): string
+    {
+        return PhoneField::class;
+    }
+
     public function domain(): string
     {
         return 'field-pack-phone';

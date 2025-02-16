@@ -41,6 +41,12 @@ final class TextareaFieldChoice implements FieldsChoiceInterface
         return TextareaField::TYPE;
     }
 
+    /** Возвращает класс поля */
+    public function class(): string
+    {
+        return TextareaField::class;
+    }
+
     public function domain(): string
     {
         return 'field-pack-textarea';

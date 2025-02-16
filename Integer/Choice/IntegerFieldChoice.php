@@ -41,6 +41,12 @@ final class IntegerFieldChoice implements FieldsChoiceInterface
         return IntegerField::TYPE;
     }
 
+    /** Возвращает класс поля */
+    public function class(): string
+    {
+        return IntegerField::class;
+    }
+
     //	public function choice() : bool
     //	{
     //		/** Поле не является выбором */

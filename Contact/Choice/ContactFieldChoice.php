@@ -41,6 +41,12 @@ final class ContactFieldChoice implements FieldsChoiceInterface
         return ContactField::TYPE;
     }
 
+    /** Возвращает класс поля */
+    public function class(): string
+    {
+        return ContactField::class;
+    }
+
 
     public function domain(): string
     {

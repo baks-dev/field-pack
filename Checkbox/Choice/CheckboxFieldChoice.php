@@ -41,10 +41,17 @@ final class CheckboxFieldChoice implements FieldsChoiceInterface
         return CheckboxField::TYPE;
     }
 
+    /** Возвращает класс поля */
+    public function class(): string
+    {
+        return CheckboxField::class;
+    }
+
     public function domain(): string
     {
         return 'field-pack-checkbox';
     }
+
 
     /** Возвращает класс формы для рендера */
     public function form(): string
@@ -56,4 +63,5 @@ final class CheckboxFieldChoice implements FieldsChoiceInterface
     {
         return null;
     }
+
 }

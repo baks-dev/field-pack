@@ -41,6 +41,11 @@ final class InputFieldChoice implements FieldsChoiceInterface
         return InputField::TYPE;
     }
 
+    /** Возвращает класс поля */
+    public function class(): string
+    {
+        return InputField::class;
+    }
 
     public function domain(): string
     {

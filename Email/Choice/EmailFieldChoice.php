@@ -42,6 +42,12 @@ final class EmailFieldChoice implements FieldsChoiceInterface
         return AccountEmail::TYPE;
     }
 
+    /** Возвращает класс поля */
+    public function class(): string
+    {
+        return AccountEmail::class;
+    }
+
     public function domain(): string
     {
         return 'field-pack-email';
