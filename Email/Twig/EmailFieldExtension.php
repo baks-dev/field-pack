@@ -46,24 +46,23 @@ final class EmailFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/email/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@Template/'.AccountEmail::TYPE.'/email/content.html.twig', ['value' => $value, 'label' => $label]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-email/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@'.AccountEmail::TYPE.'/content.html.twig', ['value' => $value, 'label' => $label]);
         }
     }
-
 
     public function render(Environment $twig, string $value): string
     {
         try
         {
-            return $twig->render('@Template/field-pack/email/render.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.AccountEmail::TYPE.'/render.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-email/render.html.twig', ['value' => $value]);
+            return $twig->render('@'.AccountEmail::TYPE.'/render.html.twig', ['value' => $value]);
         }
     }
 
@@ -71,11 +70,11 @@ final class EmailFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/email/template.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.AccountEmail::TYPE.'/template.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-email/template.html.twig', ['value' => $value]);
+            return $twig->render('@'.AccountEmail::TYPE.'/template.html.twig', ['value' => $value]);
         }
     }
 }

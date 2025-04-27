@@ -1,7 +1,7 @@
-{% trans_default_domain('field-pack-email') %}
+{% trans_default_domain('account_email') %}
 
 
-{% block field_pack_email_label %}
+{% block account_email_label %}
 
     <div class="form-label d-flex gap-1 align-items-center">
 
@@ -20,18 +20,23 @@
         {% endif %}
 
         <label class="{{ form.vars.required ? ' required' }}" for="{{ form.vars.id }}">
-            {{ form.vars.label }} {% if form.vars.required %}*{% endif %}
+            {{ form.vars.label }}
+
+            {% if form.vars.required %}
+                <span class="text-danger">*</span>
+            {% endif %}
+
         </label>
     </div>
 
 {% endblock %}
 
 
-{% block field_pack_email_widget %}
+{% block account_email_widget %}
     <div class="input-group">
         <span class="input-group-text">@</span>
         {{ form_widget(form) }}
     </div>
 {% endblock %}
 
-{% block field_pack_email_help %}{% endblock %}
+{% block account_email_help %}{% endblock %}

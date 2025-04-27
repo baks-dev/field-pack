@@ -49,7 +49,7 @@ final class InputFieldChoice implements FieldsChoiceInterface
 
     public function domain(): string
     {
-        return 'field-pack-input';
+        return 'input_field';
     }
 
 

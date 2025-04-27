@@ -45,5 +45,4 @@ final class EmailFieldTransformer implements DataTransformerInterface
     {
         return (string) $value;
     }
-
 }

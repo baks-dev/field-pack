@@ -50,7 +50,7 @@ final class EmailFieldChoice implements FieldsChoiceInterface
 
     public function domain(): string
     {
-        return 'field-pack-email';
+        return AccountEmail::TYPE;
     }
 
     /** Возвращает класс формы для рендера */

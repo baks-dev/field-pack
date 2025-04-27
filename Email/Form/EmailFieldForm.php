@@ -25,31 +25,18 @@ declare(strict_types=1);
 
 namespace BaksDev\Field\Pack\Email\Form;
 
+use BaksDev\Auth\Email\Type\Email\AccountEmail;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class EmailFieldForm extends AbstractType
 {
-    private $transformer;
-
-    public function __construct(EmailFieldTransformer $transformer)
-    {
-        $this->transformer = $transformer;
-    }
+    public function __construct(private readonly EmailFieldTransformer $transformer) {}
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->addModelTransformer($this->transformer);
-    }
-
-
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        //		$resolver->setDefaults([
-        //			'data_class' => IntegerFieldDTO::class,
-        //		]);
     }
 
     public function getParent(): string
@@ -59,6 +46,6 @@ final class EmailFieldForm extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return 'field_pack_email';
+        return AccountEmail::TYPE;
     }
 }

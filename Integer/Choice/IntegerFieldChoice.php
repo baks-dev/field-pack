@@ -55,7 +55,7 @@ final class IntegerFieldChoice implements FieldsChoiceInterface
 
     public function domain(): string
     {
-        return 'field.integer';
+        return IntegerField::TYPE;
     }
 
     /** Возвращает класс формы для рендера */

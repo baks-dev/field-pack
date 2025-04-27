@@ -23,43 +23,42 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use BaksDev\Auth\Email\Type\Email\AccountEmail;
 use BaksDev\Field\Pack\BaksDevFieldPackBundle;
+use BaksDev\Field\Pack\Checkbox\Type\CheckboxField;
+use BaksDev\Field\Pack\Contact\Type\ContactField;
+use BaksDev\Field\Pack\Inn\Type\InnField;
+use BaksDev\Field\Pack\Input\Type\InputField;
+use BaksDev\Field\Pack\Integer\Type\IntegerField;
+use BaksDev\Field\Pack\Invoice\Type\InvoiceField;
+use BaksDev\Field\Pack\Kpp\Type\KppField;
+use BaksDev\Field\Pack\Phone\Type\PhoneField;
+use BaksDev\Field\Pack\Textarea\Type\TextareaField;
 use Symfony\Config\TwigConfig;
 
 return static function(TwigConfig $twig) {
 
-    $twig->path(
-        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Checkbox', 'Resources', 'view', '']), // .'Checkbox/Resources/view',
-        'field-pack-checkbox'
-    );
+    $PATH = BaksDevFieldPackBundle::PATH;
 
-    $twig->path(
-        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Contact', 'Resources', 'view', '']), // .'Contact/Resources/view',
-        'field-pack-contact'
-    );
+    $choices = [
+        'Email' => AccountEmail::TYPE,
+        'Checkbox' => CheckboxField::TYPE,
+        'Contact' => ContactField::TYPE,
+        'Input' => InputField::TYPE,
+        'Integer' => IntegerField::TYPE,
+        'Phone' => PhoneField::TYPE,
+        'Textarea' => TextareaField::TYPE,
 
-    $twig->path(
-        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Email', 'Resources', 'view', '']), // .'Email/Resources/view',
-        'field-pack-email'
-    );
+        'Inn' => InnField::TYPE,
+        'Kpp' => KppField::TYPE,
+        'Invoice' => InvoiceField::TYPE,
+    ];
 
-    $twig->path(
-        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Input', 'Resources', 'view', '']), // .'Input/Resources/view',
-        'field-pack-input'
-    );
-
-    $twig->path(
-        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Integer', 'Resources', 'view', '']), // .'Integer/Resources/view',
-        'field-pack-integer'
-    );
-
-    $twig->path(
-        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Phone', 'Resources', 'view', '']), // .'Phone/Resources/view',
-        'field-pack-phone'
-    );
-
-    $twig->path(
-        BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Textarea', 'Resources', 'view', '']), // .'Textarea/Resources/view',
-        'field-pack-textarea'
-    );
+    foreach($choices as $key => $type)
+    {
+        $twig->path(
+            $PATH.implode(DIRECTORY_SEPARATOR, [$key, 'Resources', 'view', '']),
+            $type
+        );
+    }
 };

@@ -50,12 +50,12 @@ final class InputFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/input/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@Template/field-pack/'.InputField::TYPE.'/content.html.twig', ['value' => $value, 'label' => $label]);
 
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-input/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@'.InputField::TYPE.'/content.html.twig', ['value' => $value, 'label' => $label]);
         }
     }
 
@@ -63,11 +63,11 @@ final class InputFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/input/render.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.InputField::TYPE.'/render.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-input/render.html.twig', ['value' => $value]);
+            return $twig->render('@'.InputField::TYPE.'/render.html.twig', ['value' => $value]);
         }
     }
 
@@ -77,11 +77,11 @@ final class InputFieldExtension extends AbstractExtension
         {
             try
             {
-                return $twig->render('@Template/field-pack/input/template.html.twig', ['value' => $value]);
+                return $twig->render('@Template/field-pack/'.InputField::TYPE.'/template.html.twig', ['value' => $value]);
             }
             catch(LoaderError $loaderError)
             {
-                return $twig->render('@field-pack-input/template.html.twig', ['value' => $value]);
+                return $twig->render('@'.InputField::TYPE.'/template.html.twig', ['value' => $value]);
             }
         }
 

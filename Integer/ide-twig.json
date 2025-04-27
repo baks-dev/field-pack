@@ -1,7 +1,7 @@
 {
   "namespaces": [
     {
-      "namespace": "field-pack-integer",
+      "namespace": "integer_field",
       "path": "Resources/view"
     }
   ]

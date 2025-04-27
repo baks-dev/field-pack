@@ -24,7 +24,6 @@ final class IntegerField
 
     private int $value;
 
-
     public function __construct(int $value)
     {
         $this->value = $value;

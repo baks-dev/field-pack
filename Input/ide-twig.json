@@ -1,7 +1,7 @@
 {
   "namespaces": [
     {
-      "namespace": "field-pack-input",
+      "namespace": "input_field",
       "path": "Resources/view"
     }
   ]

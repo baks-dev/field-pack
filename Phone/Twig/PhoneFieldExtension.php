@@ -46,24 +46,23 @@ final class PhoneFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/phone/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@Template/field-pack/'.PhoneField::TYPE.'/content.html.twig', ['value' => $value, 'label' => $label]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-phone/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@'.PhoneField::TYPE.'/content.html.twig', ['value' => $value, 'label' => $label]);
         }
     }
-
 
     public function render(Environment $twig, string $value): string
     {
         try
         {
-            return $twig->render('@Template/field-pack/phone/render.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.PhoneField::TYPE.'/render.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-phone/render.html.twig', ['value' => $value]);
+            return $twig->render('@'.PhoneField::TYPE.'/render.html.twig', ['value' => $value]);
         }
     }
 
@@ -71,11 +70,11 @@ final class PhoneFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/phone/template.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.PhoneField::TYPE.'/template.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-phone/template.html.twig', ['value' => $value]);
+            return $twig->render('@'.PhoneField::TYPE.'/template.html.twig', ['value' => $value]);
         }
     }
 }

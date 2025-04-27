@@ -1,4 +1,4 @@
-{% trans_default_domain('field-pack-input') %}
+{% trans_default_domain('input_field') %}
 
 {% block field_pack_input_label %}
 
@@ -19,7 +19,11 @@
         {% endif %}
 
         <label class="{{ form.vars.required ? ' required' }}" for="{{ form.vars.id }}">
-            {{ form.vars.label }} {% if form.vars.required %}*{% endif %}
+            {{ form.vars.label }}
+
+            {% if form.vars.required %}
+                <span class="text-danger">*</span>
+            {% endif %}
         </label>
     </div>
 
@@ -29,8 +33,6 @@
 
 
 {%- block form_row -%}
-
-    1111111
 
     {%- if compound is defined and compound -%}
         {%- set element = 'fieldset' -%}

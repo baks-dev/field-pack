@@ -46,11 +46,11 @@ final class CheckboxFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/checkbox/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@Template/field-pack/'.CheckboxField::TYPE.'/content.html.twig', ['value' => $value, 'label' => $label]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-checkbox/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@'.CheckboxField::TYPE.'/content.html.twig', ['value' => $value, 'label' => $label]);
         }
     }
 
@@ -59,11 +59,11 @@ final class CheckboxFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/checkbox/render.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.CheckboxField::TYPE.'/render.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-checkbox/render.html.twig', ['value' => $value]);
+            return $twig->render('@'.CheckboxField::TYPE.'/render.html.twig', ['value' => $value]);
         }
     }
 
@@ -71,11 +71,11 @@ final class CheckboxFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/checkbox/template.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.CheckboxField::TYPE.'/template.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-checkbox/template.html.twig', ['value' => $value]);
+            return $twig->render('@'.CheckboxField::TYPE.'/template.html.twig', ['value' => $value]);
         }
     }
 }

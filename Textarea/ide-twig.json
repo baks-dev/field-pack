@@ -1,7 +1,7 @@
 {
   "namespaces": [
     {
-      "namespace": "field-pack-textarea",
+      "namespace": "textarea_field",
       "path": "Resources/view"
     }
   ]

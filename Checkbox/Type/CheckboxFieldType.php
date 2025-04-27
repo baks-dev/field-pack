@@ -34,12 +34,10 @@ final class CheckboxFieldType extends Type
         return !empty($value) ? new CheckboxField($value) : null;
     }
 
-
     public function getName(): string
     {
         return CheckboxField::TYPE;
     }
-
 
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
@@ -50,5 +48,4 @@ final class CheckboxFieldType extends Type
     {
         return $platform->getBooleanTypeDeclarationSQL($column);
     }
-
 }

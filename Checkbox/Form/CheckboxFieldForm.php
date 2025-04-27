@@ -25,6 +25,7 @@ declare(strict_types=1);
 
 namespace BaksDev\Field\Pack\Checkbox\Form;
 
+use BaksDev\Field\Pack\Checkbox\Type\CheckboxField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -43,7 +44,6 @@ final class CheckboxFieldForm extends AbstractType
         $builder->addModelTransformer($this->transformer);
     }
 
-
     public function getParent(): string
     {
         return CheckboxType::class;
@@ -51,7 +51,7 @@ final class CheckboxFieldForm extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return 'field_pack_checkbox';
+        return CheckboxField::TYPE;
     }
 
 }

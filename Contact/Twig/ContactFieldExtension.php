@@ -50,12 +50,12 @@ final class ContactFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/contact/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@Template/field-pack/'.ContactField::TYPE.'/content.html.twig', ['value' => $value, 'label' => $label]);
 
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-contact/content.html.twig', ['value' => $value, 'label' => $label]);
+            return $twig->render('@'.ContactField::TYPE.'/content.html.twig', ['value' => $value, 'label' => $label]);
         }
     }
 
@@ -63,11 +63,11 @@ final class ContactFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/contact/render.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.ContactField::TYPE.'/render.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-contact/render.html.twig', ['value' => $value]);
+            return $twig->render('@'.ContactField::TYPE.'/render.html.twig', ['value' => $value]);
         }
     }
 
@@ -77,11 +77,11 @@ final class ContactFieldExtension extends AbstractExtension
         {
             try
             {
-                return $twig->render('@Template/field-pack/contact/template.html.twig', ['value' => $value]);
+                return $twig->render('@Template/field-pack/'.ContactField::TYPE.'/template.html.twig', ['value' => $value]);
             }
             catch(LoaderError $loaderError)
             {
-                return $twig->render('@field-pack-contact/template.html.twig', ['value' => $value]);
+                return $twig->render('@'.ContactField::TYPE.'/template.html.twig', ['value' => $value]);
             }
         }
 

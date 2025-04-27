@@ -28,15 +28,22 @@ use Symfony\Config\FrameworkConfig;
 
 return static function(FrameworkConfig $config) {
 
+    $PATH = BaksDevFieldPackBundle::PATH;
+
     $config
         ->translator()
         ->paths([
-            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Checkbox', 'Resources', 'translations', '']),
-            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Contact', 'Resources', 'translations', '']),
-            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Email', 'Resources', 'translations', '']),
-            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Input', 'Resources', 'translations', '']),
-            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Integer', 'Resources', 'translations', '']),
-            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Phone', 'Resources', 'translations', '']),
-            BaksDevFieldPackBundle::PATH.implode(DIRECTORY_SEPARATOR, ['Textarea', 'Resources', 'translations', ''])
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Checkbox', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Contact', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Email', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Input', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Integer', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Phone', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Textarea', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Inn', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Kpp', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Invoice', 'Resources', 'translations', '']),
         ]);
+
+
 };

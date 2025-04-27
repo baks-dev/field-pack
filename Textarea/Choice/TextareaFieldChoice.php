@@ -49,7 +49,7 @@ final class TextareaFieldChoice implements FieldsChoiceInterface
 
     public function domain(): string
     {
-        return 'field-pack-textarea';
+        return 'textarea_field';
     }
 
     /** Возвращает класс формы для рендера */

@@ -25,6 +25,7 @@
 
 namespace BaksDev\Field\Pack\Textarea\Twig;
 
+use BaksDev\Core\Twig\TemplateExtension;
 use BaksDev\Field\Pack\Textarea\Type\TextareaField;
 use BaksDev\Field\Tire\Profile\Type\TireProfileEnum;
 use Twig\Environment;
@@ -34,6 +35,8 @@ use Twig\TwigFunction;
 
 final class TextareaFieldExtension extends AbstractExtension
 {
+    public function __construct(private readonly TemplateExtension $template) {}
+
     public function getFunctions(): array
     {
         return [
@@ -47,11 +50,11 @@ final class TextareaFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/textarea/content.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.TextareaField::TYPE.'/content.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-textarea/content.html.twig', ['value' => $value]);
+            return $twig->render('@'.TextareaField::TYPE.'/content.html.twig', ['value' => $value]);
         }
     }
 
@@ -60,11 +63,11 @@ final class TextareaFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/textarea/render.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.TextareaField::TYPE.'/render.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-textarea/render.html.twig', ['value' => $value]);
+            return $twig->render('@'.TextareaField::TYPE.'/render.html.twig', ['value' => $value]);
         }
     }
 
@@ -72,11 +75,11 @@ final class TextareaFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/field-pack/textarea/template.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.TextareaField::TYPE.'/template.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@field-pack-textarea/template.html.twig', ['value' => $value]);
+            return $twig->render('@'.TextareaField::TYPE.'/template.html.twig', ['value' => $value]);
         }
     }
 }

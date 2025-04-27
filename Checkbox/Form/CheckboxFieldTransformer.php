@@ -37,6 +37,6 @@ final class CheckboxFieldTransformer implements DataTransformerInterface
 
     public function reverseTransform(mixed $value): string
     {
-        return $value ? 'true' : 'false';
+        return empty($value) ? 'false' : 'true';
     }
 }

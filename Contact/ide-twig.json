@@ -1,7 +1,7 @@
 {
   "namespaces": [
     {
-      "namespace": "field-pack-contact",
+      "namespace": "contact_field",
       "path": "Resources/view"
     }
   ]

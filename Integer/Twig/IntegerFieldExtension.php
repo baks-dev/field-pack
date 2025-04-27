@@ -47,11 +47,11 @@ final class IntegerFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/InputField/content.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.IntegerField::TYPE.'/content.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@InputField/content.html.twig', ['value' => $value]);
+            return $twig->render('@'.IntegerField::TYPE.'/content.html.twig', ['value' => $value]);
         }
     }
 
@@ -60,11 +60,11 @@ final class IntegerFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/InputField/render.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.IntegerField::TYPE.'/render.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@InputField/render.html.twig', ['value' => $value]);
+            return $twig->render('@'.IntegerField::TYPE.'/render.html.twig', ['value' => $value]);
         }
     }
 
@@ -72,11 +72,11 @@ final class IntegerFieldExtension extends AbstractExtension
     {
         try
         {
-            return $twig->render('@Template/InputField/template.html.twig', ['value' => $value]);
+            return $twig->render('@Template/field-pack/'.IntegerField::TYPE.'/template.html.twig', ['value' => $value]);
         }
         catch(LoaderError $loaderError)
         {
-            return $twig->render('@InputField/template.html.twig', ['value' => $value]);
+            return $twig->render('@'.IntegerField::TYPE.'/template.html.twig', ['value' => $value]);
         }
     }
 }

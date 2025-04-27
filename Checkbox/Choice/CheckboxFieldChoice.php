@@ -49,7 +49,7 @@ final class CheckboxFieldChoice implements FieldsChoiceInterface
 
     public function domain(): string
     {
-        return 'field-pack-checkbox';
+        return 'checkbox_field';
     }
 
 

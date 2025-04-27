@@ -50,7 +50,7 @@ final class ContactFieldChoice implements FieldsChoiceInterface
 
     public function domain(): string
     {
-        return 'field-pack-contact';
+        return 'contact_field';
     }
 
 

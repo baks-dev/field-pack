@@ -1,7 +1,7 @@
 {
   "namespaces": [
     {
-      "namespace": "field-pack-email",
+      "namespace": "account_email",
       "path": "Resources/view"
     }
   ]

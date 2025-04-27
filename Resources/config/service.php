@@ -27,14 +27,18 @@ use BaksDev\Field\Pack\BaksDevFieldPackBundle;
 use BaksDev\Field\Pack\Checkbox\Choice\CheckboxFieldChoice;
 use BaksDev\Field\Pack\Contact\Choice\ContactFieldChoice;
 use BaksDev\Field\Pack\Email\Choice\EmailFieldChoice;
+use BaksDev\Field\Pack\Inn\Choice\InnFieldChoice;
 use BaksDev\Field\Pack\Input\Choice\InputFieldChoice;
 use BaksDev\Field\Pack\Integer\Choice\IntegerFieldChoice;
+use BaksDev\Field\Pack\Invoice\Choice\InvoiceFieldChoice;
+use BaksDev\Field\Pack\Kpp\Choice\KppFieldChoice;
 use BaksDev\Field\Pack\Phone\Choice\PhoneFieldChoice;
 use BaksDev\Field\Pack\Textarea\Choice\TextareaFieldChoice;
 
 return static function(ContainerConfigurator $configurator) {
 
-    $services = $configurator->services()
+    $services = $configurator
+        ->services()
         ->defaults()
         ->autowire(true)
         ->autoconfigure(true);
@@ -42,45 +46,24 @@ return static function(ContainerConfigurator $configurator) {
     $NAMESPACE = BaksDevFieldPackBundle::NAMESPACE;
     $PATH = BaksDevFieldPackBundle::PATH;
 
+    $choices = [
+        'Email' => EmailFieldChoice::class,
+        'Checkbox' => CheckboxFieldChoice::class,
+        'Input' => InputFieldChoice::class,
+        'Contact' => ContactFieldChoice::class,
+        'Integer' => IntegerFieldChoice::class,
+        'Phone' => PhoneFieldChoice::class,
+        'Textarea' => TextareaFieldChoice::class,
 
-    $services->load($NAMESPACE.'Checkbox\Form\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Checkbox', 'Form'])); //  'Checkbox/Form');
-    $services->load($NAMESPACE.'Checkbox\Twig\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Checkbox', 'Twig'])); //  .'Checkbox/Twig');
-    $services->set(CheckboxFieldChoice::class)
-        ->tag('baks.fields.choice');
+        'Inn' => InnFieldChoice::class,
+        'Kpp' => KppFieldChoice::class,
+        'Invoice' => InvoiceFieldChoice::class,
+    ];
 
-
-    $services->load($NAMESPACE.'Email\Form\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Email', 'Form'])); //  .'Email/Form');
-    $services->load($NAMESPACE.'Email\Twig\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Email', 'Twig'])); //  .'Email/Twig');
-    $services->set(EmailFieldChoice::class)
-        ->tag('baks.fields.choice');
-
-
-    $services->load($NAMESPACE.'Input\Form\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Input', 'Form'])); //  .'Input/Form');
-    $services->load($NAMESPACE.'Input\Twig\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Input', 'Twig'])); //  .'Input/Twig');
-    $services->set(InputFieldChoice::class)
-        ->tag('baks.fields.choice');
-
-
-    $services->load($NAMESPACE.'Contact\Form\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Contact', 'Form'])); //  .'Contact/Form');
-    $services->load($NAMESPACE.'Contact\Twig\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Contact', 'Twig'])); //  .'Contact/Twig');
-    $services->set(ContactFieldChoice::class)
-        ->tag('baks.fields.choice');
-
-    $services->load($NAMESPACE.'Integer\Form\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Integer', 'Form'])); //  .'Integer/Form');
-    $services->load($NAMESPACE.'Integer\Twig\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Integer', 'Twig'])); //  .'Integer/Twig');
-    $services->set(IntegerFieldChoice::class)
-        ->tag('baks.fields.choice');
-
-
-    $services->load($NAMESPACE.'Phone\Form\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Phone', 'Form'])); //  .'Phone/Form');
-    $services->load($NAMESPACE.'Phone\Twig\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Phone', 'Twig'])); //  .'Phone/Twig');
-    $services->set(PhoneFieldChoice::class)
-        ->tag('baks.fields.choice');
-
-    $services->load($NAMESPACE.'Textarea\Form\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Textarea', 'Form'])); //  .'Textarea/Form');
-    $services->load($NAMESPACE.'Textarea\Twig\\', $PATH.implode(DIRECTORY_SEPARATOR, ['Textarea', 'Twig'])); //  .'Textarea/Twig');
-    $services->set(TextareaFieldChoice::class)
-        ->tag('baks.fields.choice');
-
-
+    foreach($choices as $key => $class)
+    {
+        $services->load($NAMESPACE.$key.'\Form\\', $PATH.implode(DIRECTORY_SEPARATOR, [$key, 'Form'])); //  'Checkbox/Form');
+        $services->load($NAMESPACE.$key.'\Twig\\', $PATH.implode(DIRECTORY_SEPARATOR, [$key, 'Twig'])); //  .'Checkbox/Twig');
+        $services->set($class)->tag('baks.fields.choice');
+    }
 };
