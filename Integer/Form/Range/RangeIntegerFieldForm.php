@@ -1,6 +1,6 @@
 <?php
 /*
- *  Copyright 2023.  Baks.dev <admin@baks.dev>
+ *  Copyright 2025.  Baks.dev <admin@baks.dev>
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -23,44 +23,36 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Integer\Choice;
+namespace BaksDev\Field\Pack\Integer\Form\Range;
 
-use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
-use BaksDev\Field\Pack\Integer\Form\IntegerFieldForm;
+
 use BaksDev\Field\Pack\Integer\Type\IntegerField;
+use BaksDev\Field\Tire\Euro\Form\TireEuroFieldDTO;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class IntegerFieldChoice implements FieldsChoiceInterface
+final class RangeIntegerFieldForm extends AbstractType
 {
-    public function equals($key): bool
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        return $key === IntegerField::TYPE;
+        $builder->add('min', NumberType::class);
+
+        $builder->add('max', NumberType::class);
     }
 
-    public function type(): string
+    public function configureOptions(OptionsResolver $resolver): void
     {
-        return IntegerField::TYPE;
+        $resolver->setDefaults([
+            'data_class' => RangeIntegerFieldDTO::class,
+            'translation_domain' => 'integer_field'
+        ]);
     }
 
-    /** Возвращает класс поля */
-    public function class(): string
+    public function getBlockPrefix(): string
     {
-        return IntegerField::class;
-    }
-
-    public function domain(): string
-    {
-        return IntegerField::TYPE;
-    }
-
-    /** Возвращает класс формы для рендера */
-    public function form(): string
-    {
-        return IntegerFieldForm::class;
-    }
-
-    public function constraints(): ?array
-    {
-        return null;
+        return 'range_'.IntegerField::TYPE;
     }
 
 }

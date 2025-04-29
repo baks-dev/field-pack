@@ -1,6 +1,6 @@
 <?php
 /*
- *  Copyright 2023.  Baks.dev <admin@baks.dev>
+ *  Copyright 2025.  Baks.dev <admin@baks.dev>
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -23,44 +23,35 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Integer\Choice;
+namespace BaksDev\Field\Pack\Integer\Form\Range;
 
-use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
-use BaksDev\Field\Pack\Integer\Form\IntegerFieldForm;
-use BaksDev\Field\Pack\Integer\Type\IntegerField;
+use Symfony\Component\Validator\Constraints as Assert;
 
-final class IntegerFieldChoice implements FieldsChoiceInterface
+final class RangeIntegerFieldDTO
 {
-    public function equals($key): bool
+    private int $min = 0;
+
+    private int $max = 0;
+
+    public function getMin(): int
     {
-        return $key === IntegerField::TYPE;
+        return $this->min;
     }
 
-    public function type(): string
+    public function setMin(int $min): self
     {
-        return IntegerField::TYPE;
+        $this->min = $min;
+        return $this;
     }
 
-    /** Возвращает класс поля */
-    public function class(): string
+    public function getMax(): int
     {
-        return IntegerField::class;
+        return $this->max;
     }
 
-    public function domain(): string
+    public function setMax(int $max): self
     {
-        return IntegerField::TYPE;
+        $this->max = $max;
+        return $this;
     }
-
-    /** Возвращает класс формы для рендера */
-    public function form(): string
-    {
-        return IntegerFieldForm::class;
-    }
-
-    public function constraints(): ?array
-    {
-        return null;
-    }
-
 }
