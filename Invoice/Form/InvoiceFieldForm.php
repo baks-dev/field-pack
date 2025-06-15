@@ -27,13 +27,13 @@ namespace BaksDev\Field\Pack\Invoice\Form;
 
 use BaksDev\Field\Pack\Invoice\Type\InvoiceField;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 final class InvoiceFieldForm extends AbstractType
 {
     public function getParent(): string
     {
-        return NumberType::class;
+        return TextType::class;
     }
 
     public function getBlockPrefix(): string
