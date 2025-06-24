@@ -42,6 +42,8 @@ return static function(FrameworkConfig $config) {
             $PATH.implode(DIRECTORY_SEPARATOR, ['Textarea', 'Resources', 'translations', '']),
             $PATH.implode(DIRECTORY_SEPARATOR, ['Inn', 'Resources', 'translations', '']),
             $PATH.implode(DIRECTORY_SEPARATOR, ['Kpp', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Okpo', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Orgn', 'Resources', 'translations', '']),
             $PATH.implode(DIRECTORY_SEPARATOR, ['Invoice', 'Resources', 'translations', '']),
         ]);
 

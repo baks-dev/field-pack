@@ -16,6 +16,10 @@ use BaksDev\Field\Pack\Invoice\Type\InvoiceField;
 use BaksDev\Field\Pack\Invoice\Type\InvoiceFieldType;
 use BaksDev\Field\Pack\Kpp\Type\KppField;
 use BaksDev\Field\Pack\Kpp\Type\KppFieldType;
+use BaksDev\Field\Pack\Okpo\Type\OkpoField;
+use BaksDev\Field\Pack\Okpo\Type\OkpoFieldType;
+use BaksDev\Field\Pack\Orgn\Type\OrgnField;
+use BaksDev\Field\Pack\Orgn\Type\OrgnFieldType;
 use BaksDev\Field\Pack\Phone\Type\PhoneField;
 use BaksDev\Field\Pack\Phone\Type\PhoneFieldType;
 use BaksDev\Field\Pack\Textarea\Type\TextareaField;
@@ -39,6 +43,10 @@ return static function(DoctrineConfig $doctrine) {
     $doctrine->dbal()->type(InnField::TYPE)->class(InnFieldType::class);
 
     $doctrine->dbal()->type(KppField::TYPE)->class(KppFieldType::class);
+
+    $doctrine->dbal()->type(OkpoField::TYPE)->class(OkpoFieldType::class);
+
+    $doctrine->dbal()->type(OrgnField::TYPE)->class(OrgnFieldType::class);
 
     $doctrine->dbal()->type(InvoiceField::TYPE)->class(InvoiceFieldType::class);
 

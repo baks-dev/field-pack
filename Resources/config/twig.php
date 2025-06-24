@@ -32,6 +32,8 @@ use BaksDev\Field\Pack\Input\Type\InputField;
 use BaksDev\Field\Pack\Integer\Type\IntegerField;
 use BaksDev\Field\Pack\Invoice\Type\InvoiceField;
 use BaksDev\Field\Pack\Kpp\Type\KppField;
+use BaksDev\Field\Pack\Okpo\Type\OkpoField;
+use BaksDev\Field\Pack\Orgn\Type\OrgnField;
 use BaksDev\Field\Pack\Phone\Type\PhoneField;
 use BaksDev\Field\Pack\Textarea\Type\TextareaField;
 use Symfony\Config\TwigConfig;
@@ -51,6 +53,9 @@ return static function(TwigConfig $twig) {
 
         'Inn' => InnField::TYPE,
         'Kpp' => KppField::TYPE,
+        'Okpo' => OkpoField::TYPE,
+        'Orgn' => OrgnField::TYPE,
+
         'Invoice' => InvoiceField::TYPE,
     ];
 
