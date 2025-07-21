@@ -28,12 +28,13 @@ namespace BaksDev\Field\Pack\Organization\Form;
 use BaksDev\Field\Pack\Organization\Type\OrganizationField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 final class OrganizationFieldForm extends AbstractType
 {
     public function getParent(): string
     {
-        return NumberType::class;
+        return TextType::class;
     }
 
     public function getBlockPrefix(): string

@@ -28,12 +28,13 @@ namespace BaksDev\Field\Pack\Schedule\Form;
 use BaksDev\Field\Pack\Schedule\Type\ScheduleField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 final class ScheduleFieldForm extends AbstractType
 {
     public function getParent(): string
     {
-        return NumberType::class;
+        return TextType::class;
     }
 
     public function getBlockPrefix(): string
