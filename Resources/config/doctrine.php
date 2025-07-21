@@ -18,10 +18,14 @@ use BaksDev\Field\Pack\Kpp\Type\KppField;
 use BaksDev\Field\Pack\Kpp\Type\KppFieldType;
 use BaksDev\Field\Pack\Okpo\Type\OkpoField;
 use BaksDev\Field\Pack\Okpo\Type\OkpoFieldType;
+use BaksDev\Field\Pack\Organization\Type\OrganizationField;
+use BaksDev\Field\Pack\Organization\Type\OrganizationFieldType;
 use BaksDev\Field\Pack\Orgn\Type\OrgnField;
 use BaksDev\Field\Pack\Orgn\Type\OrgnFieldType;
 use BaksDev\Field\Pack\Phone\Type\PhoneField;
 use BaksDev\Field\Pack\Phone\Type\PhoneFieldType;
+use BaksDev\Field\Pack\Schedule\Type\ScheduleField;
+use BaksDev\Field\Pack\Schedule\Type\ScheduleFieldType;
 use BaksDev\Field\Pack\Textarea\Type\TextareaField;
 use BaksDev\Field\Pack\Textarea\Type\TextareaFieldType;
 use Symfony\Config\DoctrineConfig;
@@ -49,5 +53,9 @@ return static function(DoctrineConfig $doctrine) {
     $doctrine->dbal()->type(OrgnField::TYPE)->class(OrgnFieldType::class);
 
     $doctrine->dbal()->type(InvoiceField::TYPE)->class(InvoiceFieldType::class);
+
+    $doctrine->dbal()->type(ScheduleField::TYPE)->class(ScheduleFieldType::class);
+
+    $doctrine->dbal()->type(OrganizationField::TYPE)->class(OrganizationFieldType::class);
 
 };

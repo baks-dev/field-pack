@@ -45,6 +45,8 @@ return static function(FrameworkConfig $config) {
             $PATH.implode(DIRECTORY_SEPARATOR, ['Okpo', 'Resources', 'translations', '']),
             $PATH.implode(DIRECTORY_SEPARATOR, ['Orgn', 'Resources', 'translations', '']),
             $PATH.implode(DIRECTORY_SEPARATOR, ['Invoice', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Schedule', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Organization', 'Resources', 'translations', '']),
         ]);
 
 

@@ -33,8 +33,10 @@ use BaksDev\Field\Pack\Integer\Choice\IntegerFieldChoice;
 use BaksDev\Field\Pack\Invoice\Choice\InvoiceFieldChoice;
 use BaksDev\Field\Pack\Kpp\Choice\KppFieldChoice;
 use BaksDev\Field\Pack\Okpo\Choice\OkpoFieldChoice;
+use BaksDev\Field\Pack\Organization\Choice\OrganizationFieldChoice;
 use BaksDev\Field\Pack\Orgn\Choice\OrgnFieldChoice;
 use BaksDev\Field\Pack\Phone\Choice\PhoneFieldChoice;
+use BaksDev\Field\Pack\Schedule\Choice\ScheduleFieldChoice;
 use BaksDev\Field\Pack\Textarea\Choice\TextareaFieldChoice;
 
 return static function(ContainerConfigurator $configurator) {
@@ -62,6 +64,8 @@ return static function(ContainerConfigurator $configurator) {
         'Okpo' => OkpoFieldChoice::class,
         'Orgn' => OrgnFieldChoice::class,
         'Invoice' => InvoiceFieldChoice::class,
+        'Schedule' => ScheduleFieldChoice::class,
+        'Organization' => OrganizationFieldChoice::class,
     ];
 
     foreach($choices as $key => $class)
