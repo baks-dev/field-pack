@@ -43,7 +43,7 @@
         {{ form_widget(form) }}
     </div>
 
-    <script nonce='{{ csp_nonce() }}' async data-src="/assets/js/inputmask.min.js?v={{ version }}"
+    <script nonce='{{ csp_nonce() }}' async data-src="/assets/{{ version }}/js/inputmask.min.js?v={{ version }}"
             class="lazy"></script>
 
 {% endblock %}
