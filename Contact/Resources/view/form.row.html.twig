@@ -19,7 +19,11 @@
         {% endif %}
 
         <label class="{{ form.vars.required ? ' required' }}" for="{{ form.vars.id }}">
-            {{ form.vars.label }} {% if form.vars.required %}*{% endif %}
+            {{ form.vars.label }}
+
+            {% if form.vars.required %}
+                <span class="text-danger">*</span>
+            {% endif %}
         </label>
     </div>
 

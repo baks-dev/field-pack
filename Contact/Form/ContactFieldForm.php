@@ -25,6 +25,7 @@ declare(strict_types=1);
 
 namespace BaksDev\Field\Pack\Contact\Form;
 
+use BaksDev\Field\Pack\Contact\Type\ContactField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -38,7 +39,7 @@ final class ContactFieldForm extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return 'field_pack_contact';
+        return ContactField::TYPE;
     }
 
 }
