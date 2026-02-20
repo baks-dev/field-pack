@@ -2,6 +2,8 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use BaksDev\Field\Pack\Brand\Type\BrandField;
+use BaksDev\Field\Pack\Brand\Type\BrandFieldType;
 use BaksDev\Field\Pack\Checkbox\Type\CheckboxField;
 use BaksDev\Field\Pack\Checkbox\Type\CheckboxFieldType;
 use BaksDev\Field\Pack\Contact\Type\ContactField;
@@ -16,6 +18,8 @@ use BaksDev\Field\Pack\Invoice\Type\InvoiceField;
 use BaksDev\Field\Pack\Invoice\Type\InvoiceFieldType;
 use BaksDev\Field\Pack\Kpp\Type\KppField;
 use BaksDev\Field\Pack\Kpp\Type\KppFieldType;
+use BaksDev\Field\Pack\Model\Type\ModelField;
+use BaksDev\Field\Pack\Model\Type\ModelFieldType;
 use BaksDev\Field\Pack\Okpo\Type\OkpoField;
 use BaksDev\Field\Pack\Okpo\Type\OkpoFieldType;
 use BaksDev\Field\Pack\Organization\Type\OrganizationField;
@@ -58,4 +62,7 @@ return static function(DoctrineConfig $doctrine) {
 
     $doctrine->dbal()->type(OrganizationField::TYPE)->class(OrganizationFieldType::class);
 
+    $doctrine->dbal()->type(BrandField::TYPE)->class(BrandFieldType::class);
+
+    $doctrine->dbal()->type(ModelField::TYPE)->class(ModelFieldType::class);
 };

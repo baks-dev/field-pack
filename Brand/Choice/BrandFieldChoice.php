@@ -1,6 +1,6 @@
 <?php
 /*
- *  Copyright 2023.  Baks.dev <admin@baks.dev>
+ * Copyright 2026.  Baks.dev <admin@baks.dev>
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -23,21 +23,45 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Organization\Form;
+namespace BaksDev\Field\Pack\Brand\Choice;
 
-use BaksDev\Field\Pack\Organization\Type\OrganizationField;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use BaksDev\Core\Services\Fields\FieldsChoiceInterface;
+use BaksDev\Field\Pack\Brand\Form\BrandFieldForm;
+use BaksDev\Field\Pack\Brand\Type\BrandField;
 
-final class OrganizationFieldForm extends AbstractType
+final class BrandFieldChoice implements FieldsChoiceInterface
 {
-    public function getParent(): string
+    public function equals($key): bool
     {
-        return TextType::class;
+        return $key === BrandField::TYPE;
     }
 
-    public function getBlockPrefix(): string
+    public function type(): string
     {
-        return OrganizationField::TYPE;
+        return BrandField::TYPE;
     }
+
+    /** Возвращает класс поля */
+    public function class(): string
+    {
+        return BrandField::class;
+    }
+
+    public function domain(): string
+    {
+        return 'brand_field';
+    }
+
+
+    /** Возвращает класс формы для рендера */
+    public function form(): string
+    {
+        return BrandFieldForm::class;
+    }
+
+    public function constraints(): ?array
+    {
+        return null;
+    }
+
 }

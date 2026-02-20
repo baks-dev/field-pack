@@ -1,6 +1,6 @@
 <?php
 /*
- *  Copyright 2023.  Baks.dev <admin@baks.dev>
+ * Copyright 2026.  Baks.dev <admin@baks.dev>
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -23,21 +23,35 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Organization\Form;
+namespace BaksDev\Field\Pack\Model\Type;
 
-use BaksDev\Field\Pack\Organization\Type\OrganizationField;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\Type;
 
-final class OrganizationFieldForm extends AbstractType
+final class ModelFieldType extends Type
 {
-    public function getParent(): string
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): string
     {
-        return TextType::class;
+        return (string) $value;
+    }
+    
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?ModelField
+    {
+        return !empty($value) ? new ModelField($value) : null;
     }
 
-    public function getBlockPrefix(): string
+    public function getName(): string
     {
-        return OrganizationField::TYPE;
+        return ModelField::TYPE;
+    }
+
+    public function requiresSQLCommentHint(AbstractPlatform $platform): bool
+    {
+        return true;
+    }
+
+    public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
+    {
+        return $platform->getStringTypeDeclarationSQL($column);
     }
 }

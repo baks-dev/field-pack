@@ -1,6 +1,6 @@
 <?php
 /*
- *  Copyright 2023.  Baks.dev <admin@baks.dev>
+ * Copyright 2026.  Baks.dev <admin@baks.dev>
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -23,21 +23,26 @@
 
 declare(strict_types=1);
 
-namespace BaksDev\Field\Pack\Organization\Form;
+namespace BaksDev\Field\Pack\Model\Type;
 
-use BaksDev\Field\Pack\Organization\Type\OrganizationField;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-
-final class OrganizationFieldForm extends AbstractType
+final class ModelField
 {
-    public function getParent(): string
+    public const string TYPE = 'model_field';
+
+    private string $value;
+
+    public function __construct(string $value)
     {
-        return TextType::class;
+        $this->value = $value;
     }
 
-    public function getBlockPrefix(): string
+    public function __toString(): string
     {
-        return OrganizationField::TYPE;
+        return $this->value;
+    }
+
+    public function getValue(): string
+    {
+        return $this->value;
     }
 }
