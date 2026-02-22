@@ -21,10 +21,13 @@
  *  THE SOFTWARE.
  */
 
+declare(strict_types=1);
+
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use BaksDev\Auth\Email\Type\Email\AccountEmail;
 use BaksDev\Field\Pack\BaksDevFieldPackBundle;
+use BaksDev\Field\Pack\Brand\Type\BrandField;
 use BaksDev\Field\Pack\Checkbox\Type\CheckboxField;
 use BaksDev\Field\Pack\Contact\Type\ContactField;
 use BaksDev\Field\Pack\Inn\Type\InnField;
@@ -32,6 +35,7 @@ use BaksDev\Field\Pack\Input\Type\InputField;
 use BaksDev\Field\Pack\Integer\Type\IntegerField;
 use BaksDev\Field\Pack\Invoice\Type\InvoiceField;
 use BaksDev\Field\Pack\Kpp\Type\KppField;
+use BaksDev\Field\Pack\Model\Type\ModelField;
 use BaksDev\Field\Pack\Okpo\Type\OkpoField;
 use BaksDev\Field\Pack\Organization\Type\OrganizationField;
 use BaksDev\Field\Pack\Orgn\Type\OrgnField;
@@ -61,6 +65,9 @@ return static function(TwigConfig $twig) {
         'Invoice' => InvoiceField::TYPE,
         'Schedule' => ScheduleField::TYPE,
         'Organization' => OrganizationField::TYPE,
+
+        'Brand' => BrandField::TYPE,
+        'Model' => ModelField::TYPE,
     ];
 
     foreach($choices as $key => $type)

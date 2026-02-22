@@ -21,9 +21,12 @@
  *  THE SOFTWARE.
  */
 
+declare(strict_types=1);
+
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use BaksDev\Field\Pack\BaksDevFieldPackBundle;
+use BaksDev\Field\Pack\Brand\Choice\BrandFieldChoice;
 use BaksDev\Field\Pack\Checkbox\Choice\CheckboxFieldChoice;
 use BaksDev\Field\Pack\Contact\Choice\ContactFieldChoice;
 use BaksDev\Field\Pack\Email\Choice\EmailFieldChoice;
@@ -32,6 +35,7 @@ use BaksDev\Field\Pack\Input\Choice\InputFieldChoice;
 use BaksDev\Field\Pack\Integer\Choice\IntegerFieldChoice;
 use BaksDev\Field\Pack\Invoice\Choice\InvoiceFieldChoice;
 use BaksDev\Field\Pack\Kpp\Choice\KppFieldChoice;
+use BaksDev\Field\Pack\Model\Choice\ModelFieldChoice;
 use BaksDev\Field\Pack\Okpo\Choice\OkpoFieldChoice;
 use BaksDev\Field\Pack\Organization\Choice\OrganizationFieldChoice;
 use BaksDev\Field\Pack\Orgn\Choice\OrgnFieldChoice;
@@ -66,6 +70,9 @@ return static function(ContainerConfigurator $configurator) {
         'Invoice' => InvoiceFieldChoice::class,
         'Schedule' => ScheduleFieldChoice::class,
         'Organization' => OrganizationFieldChoice::class,
+
+        'Brand' => BrandFieldChoice::class,
+        'Model' => ModelFieldChoice::class,
     ];
 
     foreach($choices as $key => $class)

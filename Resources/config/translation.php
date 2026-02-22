@@ -21,6 +21,8 @@
  *  THE SOFTWARE.
  */
 
+declare(strict_types=1);
+
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use BaksDev\Field\Pack\BaksDevFieldPackBundle;
@@ -47,6 +49,8 @@ return static function(FrameworkConfig $config) {
             $PATH.implode(DIRECTORY_SEPARATOR, ['Invoice', 'Resources', 'translations', '']),
             $PATH.implode(DIRECTORY_SEPARATOR, ['Schedule', 'Resources', 'translations', '']),
             $PATH.implode(DIRECTORY_SEPARATOR, ['Organization', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Brand', 'Resources', 'translations', '']),
+            $PATH.implode(DIRECTORY_SEPARATOR, ['Model', 'Resources', 'translations', '']),
         ]);
 
 
