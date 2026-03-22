@@ -39,25 +39,25 @@ final class BrandFieldExtension extends AbstractExtension
             new TwigFunction(
                 BrandField::TYPE,
                 [$this, 'call'],
-                ['needs_environment' => true, 'is_safe' => ['html']]
+                ['needs_environment' => true, 'is_safe' => ['html']],
             ),
 
             new TwigFunction(
                 BrandField::TYPE.'_render',
                 [$this, 'render'],
-                ['needs_environment' => true, 'is_safe' => ['html']]
+                ['needs_environment' => true, 'is_safe' => ['html']],
             ),
             new TwigFunction('_render', [$this, 'render'], ['needs_environment' => true, 'is_safe' => ['html']]),
 
             new TwigFunction(
                 BrandField::TYPE.'_template',
                 [$this, 'template'],
-                ['needs_environment' => true, 'is_safe' => ['html']]
+                ['needs_environment' => true, 'is_safe' => ['html']],
             ),
             new TwigFunction(
                 '_template',
                 [$this, 'template'],
-                ['needs_environment' => true, 'is_safe' => ['html']]
+                ['needs_environment' => true, 'is_safe' => ['html']],
             ),
         ];
     }
@@ -68,7 +68,7 @@ final class BrandFieldExtension extends AbstractExtension
         {
             return $twig->render(
                 '@Template/field-pack/'.BrandField::TYPE.'/content.html.twig',
-                ['value' => $value, 'label' => $label]
+                ['value' => $value, 'label' => $label],
             );
 
         }
@@ -76,7 +76,7 @@ final class BrandFieldExtension extends AbstractExtension
         {
             return $twig->render(
                 '@'.BrandField::TYPE.'/content.html.twig',
-                ['value' => $value, 'label' => $label]
+                ['value' => $value, 'label' => $label],
             );
         }
     }
@@ -87,7 +87,7 @@ final class BrandFieldExtension extends AbstractExtension
         {
             return $twig->render(
                 '@Template/field-pack/'.BrandField::TYPE.'/render.html.twig',
-                ['value' => $value]
+                ['value' => $value],
             );
         }
         catch(LoaderError $loaderError)
@@ -104,7 +104,7 @@ final class BrandFieldExtension extends AbstractExtension
             {
                 return $twig->render(
                     '@Template/field-pack/'.BrandField::TYPE.'/template.html.twig',
-                    ['value' => $value]
+                    ['value' => $value],
                 );
             }
             catch(LoaderError $loaderError)

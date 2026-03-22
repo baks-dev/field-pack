@@ -46,7 +46,7 @@ final class RangeIntegerFieldForm extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => RangeIntegerFieldDTO::class,
-            'translation_domain' => 'integer_field'
+            'translation_domain' => 'integer_field',
         ]);
     }
 

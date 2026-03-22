@@ -74,7 +74,7 @@ return static function(TwigConfig $twig) {
     {
         $twig->path(
             $PATH.implode(DIRECTORY_SEPARATOR, [$key, 'Resources', 'view', '']),
-            $type
+            $type,
         );
     }
 };

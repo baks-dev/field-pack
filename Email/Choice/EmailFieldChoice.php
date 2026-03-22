@@ -62,7 +62,7 @@ final class EmailFieldChoice implements FieldsChoiceInterface
     public function constraints(): ?array
     {
         return [
-            new Assert\Email()
+            new Assert\Email(),
         ];
     }
 }

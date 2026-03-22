@@ -44,7 +44,7 @@ final class BrandFieldType extends Type
     {
         return BrandField::TYPE;
     }
-    
+
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return true;

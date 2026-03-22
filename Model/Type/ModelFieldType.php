@@ -34,7 +34,7 @@ final class ModelFieldType extends Type
     {
         return (string) $value;
     }
-    
+
     public function convertToPHPValue($value, AbstractPlatform $platform): ?ModelField
     {
         return !empty($value) ? new ModelField($value) : null;

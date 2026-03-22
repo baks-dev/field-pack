@@ -26,7 +26,6 @@ declare(strict_types=1);
 namespace BaksDev\Field\Pack\Brand\Form;
 
 use BaksDev\Field\Pack\Brand\Type\BrandField;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 

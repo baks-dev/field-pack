@@ -26,7 +26,6 @@ declare(strict_types=1);
 namespace BaksDev\Field\Pack\Model\Form;
 
 use BaksDev\Field\Pack\Model\Type\ModelField;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
